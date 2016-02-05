@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<interface>
+	<intro name="daylightLoader">
+DAGSLYSMOTIV
+
+Her kan du prøve ut hvordan blender, lukker og iso-verdi spiller sammen for å gi riktig eksponering. 
+Kameraets programvelger står på Manuell (M).
+	</intro>
+	<intro name="nightlightLoader">
+NATTBILDE
+
+Her kan du prøve ut hvordan du kan bruke lang lukkertid for å få fine nattbilder.
+Legg også merke til hvordan bevegelsesuskarpheten (stripene etter billysene) forandrer seg med lukkertiden.
+	</intro>
+	<intro name="indoorLoader">
+INTERIØR
+
+Her kan du prøve ut hvordan blender, lukker og iso-verdi spiller sammen for å gi riktig eksponering. 
+Kameraets programvelger står på Manuell (M).
+	</intro>
+	<intro name="apertureLoader">
+DYBDESKARPHET
+
+Her kan du prøve ut hvordan blenderen påvirker dybdeskarpheten i bildet. 
+Lukkeren stiller seg selv fordi kameraets programvelger står på AV (A hvis du bruker Nikon).
+	</intro>
+	<intro name="shutterLoader">
+BEVEGELSE
+
+Her kan du prøve ut hvordan lukkeren påvirker bevegelsesuskarpheten i bildet. 
+Blenderen stiller seg selv fordi kameraets programvelger står på TV (S hvis du bruker Nikon).
+	</intro>
+	
+</interface>

@@ -1,0 +1,581 @@
+{
+  "sets": {
+    "#text": "",
+    "LoaderMax": [
+      {
+        "@attributes": {
+          "name": "daylightLoader",
+          "load": "false",
+          "prependURLs": "images/sets/daylightSet/",
+          "defaultImg": "4",
+          "ev": "15",
+          "apertureIndex": "1",
+          "shutterIndex": "14",
+          "isoIndex": "7",
+          "controls": ""
+        },
+        "#text": "",
+        "ImageLoader": [
+          {
+            "@attributes": {
+              "name": "bgPhoto",
+              "url": "index.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take1",
+              "url": "1.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take2",
+              "url": "2.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take3",
+              "url": "3.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take4",
+              "url": "4.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take5",
+              "url": "5.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take6",
+              "url": "6.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take7",
+              "url": "7.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take8",
+              "url": "8.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take9",
+              "url": "9.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take10",
+              "url": "10.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take11",
+              "url": "11.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take12",
+              "url": "12.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take13",
+              "url": "13.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take14",
+              "url": "14.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take15",
+              "url": "15.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take16",
+              "url": "16.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take17",
+              "url": "17.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take18",
+              "url": "18.jpg"
+            }
+          }
+        ]
+      },
+      {
+        "@attributes": {
+          "name": "nightlightLoader",
+          "load": "false",
+          "prependURLs": "images/sets/nightlightSet/",
+          "defaultImg": "13",
+          "ev": "3",
+          "apertureIndex": "7",
+          "shutterIndex": "9",
+          "isoIndex": "7",
+          "controls": "shutter"
+        },
+        "#text": "",
+        "#comment": {},
+        "ImageLoader": [
+          {
+            "@attributes": {
+              "name": "bgPhoto",
+              "url": "index.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take1",
+              "url": "1.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take2",
+              "url": "2.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take3",
+              "url": "3.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take4",
+              "url": "4.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take5",
+              "url": "5.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take6",
+              "url": "6.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take7",
+              "url": "7.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take8",
+              "url": "8.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take9",
+              "url": "9.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take10",
+              "url": "10.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take11",
+              "url": "11.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take12",
+              "url": "12.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take13",
+              "url": "13.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take14",
+              "url": "14.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take15",
+              "url": "15.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take16",
+              "url": "16.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take17",
+              "url": "17.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take18",
+              "url": "18.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take19",
+              "url": "19.jpg"
+            }
+          }
+        ]
+      },
+      {
+        "@attributes": {
+          "name": "indoorLoader",
+          "load": "false",
+          "prependURLs": "images/sets/indoorSet/",
+          "defaultImg": "3",
+          "ev": "8",
+          "apertureIndex": "5",
+          "shutterIndex": "5",
+          "isoIndex": "5",
+          "controls": ""
+        },
+        "#text": "",
+        "ImageLoader": [
+          {
+            "@attributes": {
+              "name": "bgPhoto",
+              "url": "index.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take1",
+              "url": "1.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take2",
+              "url": "2.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take3",
+              "url": "3.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take4",
+              "url": "4.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take5",
+              "url": "5.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take6",
+              "url": "6.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take7",
+              "url": "7.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take8",
+              "url": "8.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take9",
+              "url": "9.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take10",
+              "url": "10.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take11",
+              "url": "11.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take12",
+              "url": "12.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take13",
+              "url": "13.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take14",
+              "url": "14.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take15",
+              "url": "15.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take16",
+              "url": "16.jpg"
+            }
+          }
+        ]
+      },
+      {
+        "@attributes": {
+          "name": "apertureLoader",
+          "load": "false",
+          "prependURLs": "images/sets/apertureSet/",
+          "defaultImg": "5",
+          "ev": "12",
+          "apertureIndex": "4",
+          "shutterIndex": "13",
+          "isoIndex": "7",
+          "controls": "aperture"
+        },
+        "#text": "",
+        "ImageLoader": [
+          {
+            "@attributes": {
+              "name": "bgPhoto",
+              "url": "index.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take1",
+              "url": "1.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take2",
+              "url": "2.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take3",
+              "url": "3.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take4",
+              "url": "4.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take5",
+              "url": "5.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take6",
+              "url": "6.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take7",
+              "url": "7.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take8",
+              "url": "8.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take9",
+              "url": "9.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take10",
+              "url": "10.jpg"
+            }
+          }
+        ]
+      },
+      {
+        "@attributes": {
+          "name": "shutterLoader",
+          "load": "false",
+          "prependURLs": "images/sets/shutterSet/",
+          "defaultImg": "8",
+          "ev": "7",
+          "apertureIndex": "2",
+          "shutterIndex": "10",
+          "isoIndex": "7",
+          "controls": "shutter"
+        },
+        "#text": "",
+        "#comment": {},
+        "ImageLoader": [
+          {
+            "@attributes": {
+              "name": "bgPhoto",
+              "url": "index.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take1",
+              "url": "1.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take2",
+              "url": "2.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take3",
+              "url": "3.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take4",
+              "url": "4.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take5",
+              "url": "5.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take6",
+              "url": "6.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take7",
+              "url": "7.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take8",
+              "url": "8.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take9",
+              "url": "9.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take10",
+              "url": "10.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take11",
+              "url": "11.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take12",
+              "url": "12.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take13",
+              "url": "13.jpg"
+            }
+          },
+          {
+            "@attributes": {
+              "name": "take14",
+              "url": "14.jpg"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
