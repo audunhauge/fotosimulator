@@ -1,3 +1,7 @@
+/*
+ *  main - container for interface and intro
+ */
+
 #main {
 	position: relative;
 	width:575px;
@@ -7,12 +11,22 @@
   margin-right:auto;
 }
 
+/*
+ *  shows girl with pictures on a line
+ *  on-click for each picture
+ */
+
 #interface {
 	position: absolute;
 	background: url("images/interface.png");
 	width:575px;
 	height: 375px;
 }
+
+/*
+ *  containes the lightbox
+ *  background changes to selected image
+ */
 
 #intro {
 	position: absolute;
@@ -27,7 +41,25 @@
   transition: background-image 1s ease-in-out;
 }
 
+/*
+ *  container for camera simulation
+ */
+
 #simula {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+	width:100%;
+	height:100%;
+	visibility: hidden;
+}
+
+/*
+ *  background image - will be blurred
+ */
+
+
+#back {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -37,8 +69,11 @@
 	background-size: cover;                    
   background-repeat: no-repeat;
   background-position: center center;
-	visibility: hidden;
 }
+
+/*
+ *  the camera
+ */
 
 #camera {
   position: absolute;
@@ -53,8 +88,40 @@
 	background-size: cover;                    
   background-repeat: no-repeat;
   background-position: center center;
- 
 }
+
+
+/*
+ *  the preview window
+ */
+
+#view {
+  position: absolute;
+  left:65;
+  top:180;
+	width:249px;
+	height: 200px;
+  background-image : url(images/sets/nightlightSet/15.jpg);
+	background-size: cover;                    
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: background-image 0.6s ease-in-out;
+}
+
+
+#view.snap {
+   animation: blink 0.1s;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
+
+/*
+ *  the controls panel - animated into position
+ */
 
 #controls {
   position: absolute;
@@ -68,7 +135,15 @@
   background-position: center center;
 }
 
-#smallwheel {
+
+/*
+ *  Next 4 are specific overlays on the control-panel,
+ *  they are 0.2 opacity overlays that show on hover.
+ *  They also flash visible for 1s at start
+ *  so user sees active controls.
+ */
+
+#ctrl_shutter {
   position: absolute;
   width:63px;
 	height:15px;
@@ -76,9 +151,19 @@
   top:363px;
   border-radius: 23%;
   background-color: rgba(255,0,0,0.2);
+  cursor: s-resize;
 }
 
-#bigwheel {
+#ctrl_shutter_left {
+  position: absolute;
+  width:31px;
+	height:15px;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  cursor: n-resize;
+}
+
+#ctrl_aperture {
   position: absolute;
   width:120px;
 	height:120px;
@@ -86,9 +171,19 @@
   top:260px;
   border-radius: 60px;
   background-color: rgba(255,0,0,0.2);
+  cursor: s-resize;
 }
 
-#iso {
+#ctrl_aperture_left {
+  position: absolute;
+  width:60px;
+	height:120px;
+  border-bottom-left-radius: 60px;
+  border-top-left-radius: 60px;
+  cursor: n-resize;
+}
+
+#ctrl_iso {
   position: absolute;
   width:43px;
 	height:20px;
@@ -96,9 +191,19 @@
   top:360px;
   border-radius: 34%;
   background-color: rgba(255,0,0,0.2);
+  cursor: s-resize;
 }
 
-#fire {
+#ctrl_iso_left {
+  position: absolute;
+  width:21px;
+	height:20px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  cursor: n-resize;
+}
+
+#ctrl_fire {
   position: absolute;
   width:62px;
 	height:35px;
@@ -107,13 +212,20 @@
   transform: rotate(21deg);
   border-radius: 45%;
   background-color: rgba(255,0,0,0.2);
+  cursor: pointer;
 }
 
+.passive {
+  opacity: 0;
+}
 
 .active:hover {
   opacity: 1;
 }
 
+/*
+ *  flash active controls at startup
+ */
 
 .active {
   opacity:0;
@@ -124,17 +236,66 @@
   to { opacity: 1; }
 }
 
-.blur {
-  animation: blurme 1s;
+
+.display {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  font-size: 0.9em;
+  color: white;
+  background-color: rgba(96, 98, 72, 0.8);
 }
 
+#display_aperture {
+  left:37px;
+  top: 130px;
+}
+
+#display_shutter {
+  left:139px;
+  top: 130px;
+  
+}
+
+#display_iso {
+  left:227px;
+  top: 130px;
+  
+}
+
+
+
+/*
+ *  the background image is blurred - we are focused
+ *  on the camera
+ */
+
+.blur {
+  animation: blurme 7s;
+  animation-fill-mode: forwards; 
+}
+
+@keyframes blurme {
+  100% { -webkit-filter: blur(5px);}  
+}
+
+
+/*
+ *  the add-on control panel is animated in from the right
+ */
+
 .controllme {
-   animation: moveinn 1s ease-in;
+   animation: moveinn 1s ease-in; 
 }
 
 @keyframes  moveinn {
   from { right:-500px; }
 }
+
+
+/*
+ *  lightbox to show info before each simulation
+ */
 
 #lightbox {
 	width:475px;
@@ -147,6 +308,15 @@
 	margin: auto;
 	margin-top:2em;
 }
+
+
+/*
+ *  these divs are covers for pics in main menu
+ *  position and rotation so that they fit approx
+ *  so all pics are covered by gray shadow
+ *  the hovered pic gets cleared (shows brighter)
+ *  all are given class overlay 
+ */
 
 .overlay {
   position: absolute;

@@ -4,6 +4,7 @@
 		<link rel="stylesheet" href="fotosim.css">
     <script src="howler.min.js"></script>
 		<script src="interface.js"></script>
+    <script src="images/sets/sets.js"></script>
 		<script src="fotosim.js"></script>
   </head>
   <body>
@@ -23,12 +24,25 @@
 		</div>
 	</div>
   <div id="simula">
+    <div id="back">
+    </div>
 		<div id="camera">
-      <div id="controls"></div>
-      <div id="bigwheel"></div>
-      <div id="smallwheel"></div>
-      <div id="iso"></div>
-      <div id="fire"></div>
+      <div id="view"></div>
+      <div id="controls">
+        <div id="display_aperture" class="display"></div>
+        <div id="display_shutter" class="display"></div>
+        <div id="display_iso" class="display"></div>
+      </div>
+      <div id="ctrl_aperture">
+        <div id="ctrl_aperture_left"></div>
+      </div>
+      <div id="ctrl_shutter">
+        <div id="ctrl_shutter_left"></div>
+      </div>
+      <div id="ctrl_iso">
+        <div id="ctrl_iso_left"></div>
+      </div>
+      <div id="ctrl_fire"></div>
     </div>
 	</div>
  	<script>
