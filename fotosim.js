@@ -31,7 +31,7 @@ function setup() {
   // These vars are pulled from StillCamera.as
   // They are used to display setting for shutter,aperture and iso
   // No other class has override for these
-  var apertureList = [1,1.4,2,2.8,4,5.6,8,11,16,22],
+  var apertureList = [ 1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16, 22 ],
 			shutterList = ['30"','15"','8"','4"','2"','1"',"1/2","1/4","1/8",
                       "1/15","1/30","1/60","1/125","1/250","1/500",
                       "1/1000","1/2000","1/4000","1/8000"],
@@ -54,7 +54,7 @@ function setup() {
       shutterIndex, isoIndex, evAdjust;     
   var currentSetArray, currentImage;
   
-  
+  // soundfile for taking a picture
   var shutterMP3 = new Howl({ urls:[ 'shutter.mp3']});
   
   var idname;       // id of image-set: nightlight, shutter ..,
@@ -102,6 +102,8 @@ function setup() {
   
   /**
    * Show camera and image to focus on
+   * Activated by user clicking on divIntro
+   * idname and dataSet already set up in checkClick
    * @param {MouseEvent} e
    */
   function startSimulation(e) {
@@ -188,10 +190,17 @@ function setup() {
     divFire.addEventListener("click", snapshot);
     
     // set image to a dark nightlight to indicate no image
-    divView.style.backgroundImage = 'url(images/sets/nightlightSet/15.jpg)';
-   
+    divView.style.backgroundImage = 'url(images/sets/nightlightSet/15.jpg)';   
   }
   
+  /**
+   * Clicking in divButtons triggers this event-listener.
+   * We first check if a valid and active button is clicked.
+   * We then pick out button name and switch.
+   * The result is an adjustment of index into img-array.
+   * The displays for aperture, shutter and iso are updated.
+   * @param {MouseEvent} e
+   */
   function adjustments(e) {
     //console.log(e.target);
     var but = e.target;
@@ -253,9 +262,13 @@ function setup() {
     update_displays();
   }
   
+  /**
+   * shutter has autoadjust for aperture
+   * @param {string} id - name of imageSet
+   * @param {int} delta - [-1|+1]  change for apertureIndex
+   */
   function aperture_auto(id, delta) {
-    console.log("app ",id);
-    if (id === "nightlight") {
+    if (id === 'shutter') {
       if (apertureIndex + delta > 0 
           && apertureIndex + delta < apertureList.length) {
           apertureIndex += delta;      
@@ -263,8 +276,12 @@ function setup() {
     }
   }
 
+  /**
+   * aperture needs autoadjust of shutter
+   * @param {string} id - name of imageSet
+   * @param {int} delta - [-1|+1]  change for shutterIndex
+   */
   function shutter_auto(id, delta) {
-    console.log("shutter ",id);
     if (id === "aperture") {
       if (shutterIndex + delta > 0 
           && shutterIndex + delta < shutterList.length) {
@@ -273,13 +290,23 @@ function setup() {
     }
   }
 
-  
+  /**
+   * Update aperture, shutter and iso displays
+   */
   function update_displays() {
     dispAperture.innerHTML = "" + apertureList[apertureIndex];
     dispShutter.innerHTML = "" + shutterList[shutterIndex];
     dispIso.innerHTML = "" + isoList[isoIndex];
   }
   
+  /**
+   * Eventlistener for fire-button
+   * Updates camera preview window with image based on
+   * ev and evAdjust
+   * Triggers animation "snap"
+   * Plays shutter sound
+   * @param {MouseEvent} e
+   */
   function snapshot(e) {
     if (snapping) return;
     var currentSetIndex = ev - evAdjust;
@@ -291,7 +318,6 @@ function setup() {
     currentImage = currentSetArray[currentSetIndex];
     snapping = true;
     shutterMP3.play();
-    console.log(currentImage);
     divView.style.backgroundImage = 'url(' 
             + attributes.prependURLs 
             + currentImage.url+ ')';
@@ -301,8 +327,12 @@ function setup() {
       snapping = false;
     }, 200);
   }
-  
-  
+
+  /**
+   * Eventlistener for click on camera-preview
+   * Hides simulation and goes back to main menu
+   * @param {MouseEvent} e
+   */  
   function endSimulation(e) {
     divSimula.style.visibility = "hidden";
     divView.style.backgroundImage = 'none';
@@ -314,7 +344,14 @@ function setup() {
     document.querySelector("#ctrl_iso").classList.remove("active");
     document.querySelector("#ctrl_fire").classList.remove("active");
   }
-  
+
+  /**
+   * This code can place the simulation in fullscreen
+   * I cant see the utility of this ....
+   * On windows and linux: F11
+   * On mac: cmd+shift+f
+   * press again to toggle
+   */  
   function fullScreen() {
      /*
     if (divSimula.requestFullscreen) {
