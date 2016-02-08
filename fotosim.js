@@ -16,6 +16,7 @@ function setup() {
   var divBack = document.getElementById("back");            // background
   var divFire = document.getElementById("ctrl_fire");       // snap a picture
   var divButtons = document.getElementById("buttons");      // buttons for aperture ..
+  var divHelpful = document.getElementById("helpful");      // helptext for first usage
   
   // displays for aperture, shutter and iso settings
   var dispAperture = document.getElementById("display_aperture");
@@ -50,8 +51,7 @@ function setup() {
 	public var evAdjust:int;
   */
   var totalImg, defaultImg, ev, defaultEV, apertureIndex,
-      shutterIndex, isoIndex, evAdjust;
-      
+      shutterIndex, isoIndex, evAdjust;     
   var currentSetArray, currentImage;
   
   
@@ -61,6 +61,9 @@ function setup() {
   var dataSet;      // data for this image set, attributes + imagelist
   var attributes;   // iso, shutter, aperture settings, which controls are active
 
+  var helpful = true;    // we deliver some helpful text on first use
+
+  // basic eventhandlers for menu (interface), start/end simulation
   divInterface.addEventListener("click", checkClick);
   divIntro.addEventListener("click", startSimulation);
   divView.addEventListener("click", endSimulation);
@@ -131,6 +134,26 @@ function setup() {
     ev               = apertureIndex + shutterIndex - 5 + isoIndex - 7;
     evAdjust         = ev - defaultImg;
     
+    // Show helpful text if this is first time
+    // The text can be removed by click
+    // Animation readme will fade it away after 13s
+    // Timeout will remove readme class after 14s
+    if (helpful) {
+      helpful = false;    // been there, done that
+      divHelpful.classList.add("let_me_read");
+      // the impatient can remove the help-text
+      divHelpful.addEventListener("click", function(e) {
+        divHelpful.classList.remove('let_me_read');
+      });
+      
+      // Event-listeners for animation_end can fail if
+      // animations have not been allowed to complete.
+      // So we set up a timeout instead.
+      setTimeout(function(e) {
+        divHelpful.classList.remove('let_me_read');
+        snapping = false;
+      }, 14000);
+    }
     
    
     // set up backgrounds and visibility
@@ -185,24 +208,30 @@ function setup() {
         if (shutterIndex > 0) {
           shutterIndex -= 1;
           ev -= 1;
+          aperture_auto(idname, 1);
+          // auto-adjust aperture if called for
         }
         break;
       case 'shutter_left':
         if (shutterIndex < shutterList.length -1) {
           shutterIndex += 1;
           ev += 1;
+          aperture_auto(idname, -1);
+          // auto-adjust aperture if called for
         }
         break;
       case 'aperture':
         if (apertureIndex > 0) {
           apertureIndex -= 1;
           ev -= 1;
+          shutter_auto(idname, 1);
         }
         break;
       case 'aperture_left':
         if (apertureIndex < apertureList.length - 1) {
           apertureIndex += 1;
           ev += 1;
+          shutter_auto(idname, -1);
         }
         break;
       case 'iso':
@@ -223,6 +252,27 @@ function setup() {
     }
     update_displays();
   }
+  
+  function aperture_auto(id, delta) {
+    console.log("app ",id);
+    if (id === "nightlight") {
+      if (apertureIndex + delta > 0 
+          && apertureIndex + delta < apertureList.length) {
+          apertureIndex += delta;      
+      }
+    }
+  }
+
+  function shutter_auto(id, delta) {
+    console.log("shutter ",id);
+    if (id === "aperture") {
+      if (shutterIndex + delta > 0 
+          && shutterIndex + delta < shutterList.length) {
+          shutterIndex += delta;      
+      }
+    }
+  }
+
   
   function update_displays() {
     dispAperture.innerHTML = "" + apertureList[apertureIndex];
