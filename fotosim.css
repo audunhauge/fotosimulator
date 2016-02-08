@@ -105,12 +105,12 @@
 	background-size: cover;                    
   background-repeat: no-repeat;
   background-position: center center;
-  transition: background-image 0.6s ease-in-out;
+  transition: background-image 0.1s ease-in-out;
 }
 
 
 #view.snap {
-   animation: blink 0.1s;
+   animation: blink 0.05s;
 }
 
 @keyframes blink {
@@ -151,7 +151,6 @@
   top:363px;
   border-radius: 23%;
   background-color: rgba(255,0,0,0.2);
-  cursor: s-resize;
 }
 
 #ctrl_shutter_left {
@@ -160,7 +159,6 @@
 	height:15px;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
-  cursor: n-resize;
 }
 
 #ctrl_aperture {
@@ -171,7 +169,6 @@
   top:260px;
   border-radius: 60px;
   background-color: rgba(255,0,0,0.2);
-  cursor: s-resize;
 }
 
 #ctrl_aperture_left {
@@ -180,7 +177,6 @@
 	height:120px;
   border-bottom-left-radius: 60px;
   border-top-left-radius: 60px;
-  cursor: n-resize;
 }
 
 #ctrl_iso {
@@ -191,7 +187,7 @@
   top:360px;
   border-radius: 34%;
   background-color: rgba(255,0,0,0.2);
-  cursor: s-resize;
+  
 }
 
 #ctrl_iso_left {
@@ -200,7 +196,6 @@
 	height:20px;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
-  cursor: n-resize;
 }
 
 #ctrl_fire {
@@ -214,6 +209,15 @@
   background-color: rgba(255,0,0,0.2);
   cursor: pointer;
 }
+
+div.active {
+  cursor: s-resize;
+}
+
+div.active > div {
+  cursor: n-resize;
+}
+
 
 .passive {
   opacity: 0;
@@ -244,6 +248,7 @@
   font-size: 0.9em;
   color: white;
   background-color: rgba(96, 98, 72, 0.8);
+  text-align: center;
 }
 
 #display_aperture {
