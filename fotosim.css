@@ -47,7 +47,7 @@
 #helpful {
   position:absolute;
   width:475px;
-	height: 275px;	
+	height: 180px;	
 	border:solid gray 2px;
 	border-radius: 1em;
 	background: rgba(200,200,200,0.8);
@@ -59,6 +59,7 @@
   top: 0;
   bottom: 0;
   visibility: hidden;
+  overflow: hidden;
 }
 
 #helpful.let_me_read {
@@ -67,10 +68,56 @@
   animation-fill-mode: forwards;
 }
 
+#helpful.done_reading {
+  visibility: visible;
+  animation: fadeaway 1s;
+  animation-fill-mode: forwards;  
+}
+
+#helpbutton {
+   position: absolute;
+   background: blue;
+   width: 33px;
+   height: 25px;
+   top: 182px;
+   left: 348px;
+   border-radius: 50%;
+   opacity: 0.4;
+   color:white;
+   padding-top:8px;
+   text-align: center;
+   z-index: 1000;
+   cursor: help;
+}
+
+@keyframes fadeaway {
+  1% { opacity: 1;}
+  100% { opacity: 0; 
+         background: blue;
+         width: 5px;
+         height: 5px;
+         top: 275px;
+         left: 148px;
+       }
+}
+
 @keyframes readme {
   1% { opacity: 1;}
-  95% { opacity: 1;}
-  100% { opacity: 0;}
+  95% { opacity: 1;
+        background: rgba(200,200,200,0.8);
+        width:475px;
+	      height: 180px;
+        left: 0;
+        top: 0;	
+      }
+  /* zooms down onto help button */
+  100% { opacity: 0; 
+         background: blue;
+         width: 5px;
+         height: 5px;
+         top: 275px;
+         left: 148px;
+       }
 }
 
 /*

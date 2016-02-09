@@ -9,14 +9,15 @@
 function setup() {
 
   /* controls */
-  var divInterface = document.getElementById("interface");  // menu
-  var divIntro = document.getElementById("intro");          // intro
-  var divSimula = document.getElementById("simula");        // simulation container
-  var divView = document.getElementById("view");            // camera preview
-  var divBack = document.getElementById("back");            // background
-  var divFire = document.getElementById("ctrl_fire");       // snap a picture
-  var divButtons = document.getElementById("buttons");      // buttons for aperture ..
-  var divHelpful = document.getElementById("helpful");      // helptext for first usage
+  var divInterface = document.getElementById("interface");   // menu
+  var divIntro = document.getElementById("intro");           // intro
+  var divSimula = document.getElementById("simula");         // simulation container
+  var divView = document.getElementById("view");             // camera preview
+  var divBack = document.getElementById("back");             // background
+  var divFire = document.getElementById("ctrl_fire");        // snap a picture
+  var divButtons = document.getElementById("buttons");       // buttons for aperture ..
+  var divHelpful = document.getElementById("helpful");       // helptext for first usage
+  var divHelpButton = document.getElementById("helpbutton"); // show help
   
   // displays for aperture, shutter and iso settings
   var dispAperture = document.getElementById("display_aperture");
@@ -67,6 +68,22 @@ function setup() {
   divInterface.addEventListener("click", checkClick);
   divIntro.addEventListener("click", startSimulation);
   divView.addEventListener("click", endSimulation);
+  divHelpButton.addEventListener("click", showMeHelp);
+  
+  function showMeHelp(e) {
+      divHelpful.classList.remove('let_me_read');
+      divHelpful.classList.remove('done_reading');
+      divHelpful.classList.add("let_me_read");
+      // the impatient can remove the help-text
+      divHelpful.addEventListener("click", function(e) {
+        divHelpful.classList.remove('let_me_read');
+        divHelpful.classList.add('done_reading');
+      });
+      setTimeout(function(e) {
+        divHelpful.classList.remove('let_me_read');
+        divHelpful.classList.remove('done_reading');
+      }, 14000);
+  }
 
 
   /**
@@ -142,19 +159,7 @@ function setup() {
     // Timeout will remove readme class after 14s
     if (helpful) {
       helpful = false;    // been there, done that
-      divHelpful.classList.add("let_me_read");
-      // the impatient can remove the help-text
-      divHelpful.addEventListener("click", function(e) {
-        divHelpful.classList.remove('let_me_read');
-      });
-      
-      // Event-listeners for animation_end can fail if
-      // animations have not been allowed to complete.
-      // So we set up a timeout instead.
-      setTimeout(function(e) {
-        divHelpful.classList.remove('let_me_read');
-        snapping = false;
-      }, 14000);
+      showMeHelp(null);
     }
     
    
