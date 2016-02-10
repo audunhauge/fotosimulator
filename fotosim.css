@@ -15,13 +15,23 @@
  *  shows girl with pictures on a line
  *  on-click for each picture
  */
-
 #interface {
 	position: absolute;
-	background: url("images/interface.png");
 	width:575px;
 	height: 375px;
 }
+
+/*
+ *   Preload images for better response
+ */
+ #preload {
+   position: absolute;
+   overflow: hidden;
+   left: -9999px; 
+   top: -9999px;
+   height: 1px;
+   width: 1px;
+ }
 
 /*
  *  containes the lightbox
@@ -56,8 +66,7 @@
 	margin: auto;
 	left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
+  top: -100;
   visibility: hidden;
   overflow: hidden;
 }
@@ -92,12 +101,12 @@
 
 @keyframes fadeaway {
   1% { opacity: 1;}
-  100% { opacity: 0; 
+  100% { opacity: 0.0; 
          background: blue;
          width: 5px;
          height: 5px;
-         top: 275px;
-         left: 148px;
+         top: 182px;
+         left: 180px;
        }
 }
 
@@ -108,15 +117,15 @@
         width:475px;
 	      height: 180px;
         left: 0;
-        top: 0;	
+        top: -100;	
       }
   /* zooms down onto help button */
   100% { opacity: 0; 
          background: blue;
          width: 5px;
          height: 5px;
-         top: 275px;
-         left: 148px;
+         top: 182px;
+         left: 180px;
        }
 }
 
