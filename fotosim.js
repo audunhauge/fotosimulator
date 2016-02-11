@@ -143,8 +143,8 @@ function setup() {
     // quickref for attributes
     attributes = dataSet.attributes;
 
-    var divTitle = document.querySelector("#lightbox h4");
-    var divText = document.querySelector("#lightbox div");
+    var divTitle = document.getElementById("title");
+    var divText = document.getElementById("text");
     divTitle.innerHTML = info.title;
     divText.innerHTML = info.text + '<p>Klikk for å begynne ...</p>';
     divIntro.style.backgroundImage = 'url(' + attributes.prependURLs + 'index.jpg)';
