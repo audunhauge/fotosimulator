@@ -103,18 +103,25 @@ function setup() {
   })();
 
   function showMeHelp(e) {
-      divHelpful.classList.remove('let_me_read');
-      divHelpful.classList.remove('done_reading');
-      divHelpful.classList.add("let_me_read");
+      removeClass(divHelpful,'let_me_read');
+      removeClass(divHelpful,'done_reading');
+      addClass(divHelpful,'let_me_read');
+      //divHelpful.classList.remove('let_me_read');
+      //divHelpful.classList.remove('done_reading');
+      //divHelpful.classList.add("let_me_read");
       // the impatient can remove the help-text
       // divHelpful.addEventListener("click", function(e) {
       divHelpful.onclick = function(e) {
-        divHelpful.classList.remove('let_me_read');
-        divHelpful.classList.add('done_reading');
+        removeClass(divHelpful,'let_me_read');
+        addClass(divHelpful,'done_reading');
+        //divHelpful.classList.remove('let_me_read');
+        //divHelpful.classList.add('done_reading');
       };
       setTimeout(function(e) {
-        divHelpful.classList.remove('let_me_read');
-        divHelpful.classList.remove('done_reading');
+        removeClass(divHelpful,'let_me_read');
+        removeClass(divHelpful,'done_reading');
+        //divHelpful.classList.remove('let_me_read');
+        //divHelpful.classList.remove('done_reading');
       }, 14000);
   }
 
@@ -123,7 +130,7 @@ function setup() {
    * Activate intro for selected simulation
    * @param {MouseEvent} e
    */
-  divInterface.onclick = function (e) {
+  divInterface.onclick = function(e) {
     e = e || event;  // event is global in ie
     var target = e.target || e.srcElement;
     if (target.id === "interface" || target.id === "img_interface") {
@@ -199,11 +206,11 @@ function setup() {
     divIntro.style.backgroundImage = 'url("images/interface.png")';
     divBack.style.backgroundImage = 'url(' + attributes.prependURLs + 'index.jpg)';
     divSimula.style.visibility = "visible";
-    document.querySelector("#controls").classList.add("controllme");
+    addClass(document.getElementById("controls"), "controllme");
     activated = "aperture,shutter,iso".split(",");
     for (i = 0; i < activated.length; i++) {
       ctrl = activated[i];
-      document.querySelector("#ctrl_" + ctrl).className = "passive";
+      document.getElementById("ctrl_" + ctrl).className = "passive";
     }
     if (attributes.controls !== "") {
       // if attribute.controls is not empty
@@ -214,11 +221,11 @@ function setup() {
     // for (ctrl of activated) {
     for (i = 0; i < activated.length; i++) {
       ctrl = activated[i];
-      document.querySelector("#ctrl_" + ctrl).classList.remove("passive");
-      document.querySelector("#ctrl_" + ctrl).classList.add("active");
+      removeClass(document.getElementById("ctrl_" + ctrl), "passive");
+      addClass(document.getElementById("ctrl_" + ctrl), "active");
     }
-    document.querySelector("#ctrl_fire").classList.add("active");
-    divBack.classList.add("blur");
+    addClass(document.getElementById("ctrl_fire"), "active");
+    addClass(divBack, "blur");
     fullScreen();
     update_displays();
 
@@ -249,8 +256,10 @@ function setup() {
     if (but.id.substr(0,4) !== 'ctrl') {
       return;   // not a ctrl_ button
     }
-    if (   but.classList.contains("passive")
-        || (but.parentNode && but.parentNode.classList.contains("passive"))) {
+    //if (   but.classList.contains("passive")
+    //    || (but.parentNode && but.parentNode.classList.contains("passive"))) {
+    if ( but.className.indexOf("passive") >= 0
+          || but.parentNode && but.parentNode.className.indexOf("passive") >= 0) {
        return;   // ignore passive buttons
     }
     var operator = but.id.substr(5);
@@ -363,9 +372,9 @@ function setup() {
     divView.style.backgroundImage = 'url('
             + attributes.prependURLs
             + currentImage.url+ ')';
-    divView.classList.add('snap');
+    addClass(divView, 'snap');
     setTimeout(function(e) {
-      divView.classList.remove('snap');
+      removeClass(divView, 'snap');
       snapping = false;
     }, 200);
   }
@@ -378,15 +387,15 @@ function setup() {
   function endSimulation(e) {
     divSimula.style.visibility = "hidden";
     divView.style.backgroundImage = 'none';
-    divBack.classList.remove("blur");
+    removeClass(divBack,"blur");
     divInterface.style.visibility = "visible";
-    document.querySelector("#controls").classList.remove("controllme");
-    document.querySelector("#ctrl_aperture").classList.remove("active");
-    document.querySelector("#ctrl_shutter").classList.remove("active");
-    document.querySelector("#ctrl_iso").classList.remove("active");
-    document.querySelector("#ctrl_fire").classList.remove("active");
-    divHelpful.classList.remove('let_me_read');
-    divHelpful.classList.remove('done_reading');
+    removeClass(document.getElementById("controls"), "controllme");
+    removeClass(document.getElementById("ctrl_aperture"), "active");
+    removeClass(document.getElementById("ctrl_shutter"), "active");
+    removeClass(document.getElementById("ctrl_iso"), "active");
+    removeClass(document.getElementById("ctrl_fire"), "active");
+    removeClass(divHelpful, 'let_me_read');
+    removeClass(divHelpful, 'done_reading');
   }
 
   /**
@@ -410,4 +419,21 @@ function setup() {
     */
   }
 
+}
+
+// needed as IE is just ...
+function hasClass(ele,cls) {
+  return !!ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+}
+
+function addClass(ele,cls) {
+  if (!hasClass(ele,cls)) ele.className = ele.className.trim() + " " + cls;
+}
+
+function removeClass(ele,cls) {
+  if (hasClass(ele,cls)) {
+    var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+    ele.className = ele.className.replace(reg,' ');
+    ele.className = ele.className.trim();
+  }
 }
