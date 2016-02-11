@@ -3,9 +3,9 @@
  */
 
 #main {
-	position: relative;
-	width:575px;
-	height: 375px;
+  position: relative;
+  width:575px;
+  height: 375px;
   margin-top:4em;
   margin-left:auto;
   margin-right:auto;
@@ -16,9 +16,9 @@
  *  on-click for each picture
  */
 #interface {
-	position: absolute;
-	width:575px;
-	height: 375px;
+  position: absolute;
+  width:575px;
+  height: 375px;
 }
 
 /*
@@ -27,7 +27,7 @@
  #preload {
    position: absolute;
    overflow: hidden;
-   left: -9999px; 
+   left: -9999px;
    top: -9999px;
    height: 1px;
    width: 1px;
@@ -38,13 +38,13 @@
  *  background changes to selected image
  */
 #intro {
-	position: absolute;
-	width:575px;
-	height: 375px;
-	display: inline-block;
-	visibility: hidden;
+  position: absolute;
+  width:575px;
+  height: 375px;
+  display: inline-block;
+  visibility: hidden;
   background-image: url("images/interface.png");
-	background-size: cover;                    
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   transition: background-image 1s ease-in-out;
@@ -57,14 +57,14 @@
 #helpful {
   position:absolute;
   width:475px;
-	height: 180px;	
-	border:solid gray 2px;
-	border-radius: 1em;
-	background: rgba(200,200,200,0.8);
-	padding: 1em;
-	text-align: center;
-	margin: auto;
-	left: 0;
+  height: 180px;
+  border:solid gray 2px;
+  border-radius: 1em;
+  background: rgba(200,200,200,0.8);
+  padding: 1em;
+  text-align: center;
+  margin: auto;
+  left: 0;
   right: 0;
   top: -100;
   visibility: hidden;
@@ -80,7 +80,7 @@
 #helpful.done_reading {
   visibility: visible;
   animation: fadeaway 1s;
-  animation-fill-mode: forwards;  
+  animation-fill-mode: forwards;
 }
 
 #helpbutton {
@@ -115,12 +115,12 @@
   95% { opacity: 1;
         background: rgba(200,200,200,0.8);
         width:475px;
-	      height: 180px;
+        height: 180px;
         left: 0;
-        top: -100;	
+        top: -100;
       }
   /* zooms down onto help button */
-  100% { opacity: 0; 
+  100% { opacity: 0;
          background: blue;
          width: 5px;
          height: 5px;
@@ -137,9 +137,9 @@
   position: absolute;
   top: 0px;
   left: 0px;
-	width:100%;
-	height:100%;
-	visibility: hidden;
+  width:100%;
+  height:100%;
+  visibility: hidden;
 }
 
 /*
@@ -151,10 +151,10 @@
   position: absolute;
   top: 0px;
   left: 0px;
-	width:100%;
-	height:100%;
+  width:100%;
+  height:100%;
   background-image: none;
-	background-size: cover;                    
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -170,10 +170,10 @@
   margin-right:auto;
   left:0;
   right:0;
-	width:575px;
-	height: 436px;
+  width:575px;
+  height: 436px;
   background-image: url("images/camera.png");
-	background-size: cover;                    
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -187,10 +187,10 @@
   position: absolute;
   left:65;
   top:180;
-	width:249px;
-	height: 200px;
+  width:249px;
+  height: 200px;
   background-image : url(images/sets/nightlightSet/15.jpg);
-	background-size: cover;                    
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   transition: background-image 0.1s ease-in-out;
@@ -214,11 +214,11 @@
 #controls {
   position: absolute;
   width:405px;
-	height: 185px;
+  height: 185px;
   bottom:-5px;
   right: -158px;
   background-image: url("images/control.png");
-	background-size: cover;                    
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -234,7 +234,7 @@
 #ctrl_shutter {
   position: absolute;
   width:63px;
-	height:15px;
+  height:15px;
   left:465px;
   top:363px;
   border-radius: 23%;
@@ -244,7 +244,7 @@
 #ctrl_shutter_left {
   position: absolute;
   width:31px;
-	height:15px;
+  height:15px;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
 }
@@ -252,7 +252,7 @@
 #ctrl_aperture {
   position: absolute;
   width:120px;
-	height:120px;
+  height:120px;
   left:334px;
   top:260px;
   border-radius: 60px;
@@ -262,7 +262,7 @@
 #ctrl_aperture_left {
   position: absolute;
   width:60px;
-	height:120px;
+  height:120px;
   border-bottom-left-radius: 60px;
   border-top-left-radius: 60px;
 }
@@ -270,18 +270,17 @@
 #ctrl_iso {
   position: absolute;
   width:43px;
-	height:20px;
+  height:20px;
   left:562px;
   top:360px;
   border-radius: 34%;
   background-color: rgba(255,0,0,0.2);
-  
 }
 
 #ctrl_iso_left {
   position: absolute;
   width:21px;
-	height:20px;
+  height:20px;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
 }
@@ -289,7 +288,7 @@
 #ctrl_fire {
   position: absolute;
   width:62px;
-	height:35px;
+  height:35px;
   left:636px;
   top:355px;
   transform: rotate(21deg);
@@ -347,13 +346,11 @@ div.active > div {
 #display_shutter {
   left:139px;
   top: 130px;
-  
 }
 
 #display_iso {
   left:227px;
   top: 130px;
-  
 }
 
 
@@ -365,11 +362,11 @@ div.active > div {
 
 .blur {
   animation: blurme 7s;
-  animation-fill-mode: forwards; 
+  animation-fill-mode: forwards;
 }
 
 @keyframes blurme {
-  100% { -webkit-filter: blur(5px);}  
+  100% { -webkit-filter: blur(5px);}
 }
 
 
@@ -378,7 +375,7 @@ div.active > div {
  */
 
 .controllme {
-   animation: moveinn 1s ease-in; 
+  animation: moveinn 1s ease-in;
 }
 
 @keyframes  moveinn {
@@ -391,15 +388,15 @@ div.active > div {
  */
 
 #lightbox {
-	width:475px;
-	height: 275px;	
-	border:solid gray 2px;
-	border-radius: 1em;
-	background: rgba(200,200,200,0.6);
-	padding: 1em;
-	text-align: center;
-	margin: auto;
-	margin-top:2em;
+  width:475px;
+  height: 275px;
+  border:solid gray 2px;
+  border-radius: 1em;
+  background: rgba(200,200,200,0.6);
+  padding: 1em;
+  text-align: center;
+  margin: auto;
+  margin-top:2em;
 }
 
 
@@ -408,54 +405,54 @@ div.active > div {
  *  position and rotation so that they fit approx
  *  so all pics are covered by gray shadow
  *  the hovered pic gets cleared (shows brighter)
- *  all are given class overlay 
+ *  all are given class overlay
  */
 
 .overlay {
   position: absolute;
-	background: rgba(20,20,20,0.4);	
+  background: rgba(20,20,20,0.4);
 }
 
 .overlay:hover {
-	background: rgba(200,200,200,0.05);
+  background: rgba(200,200,200,0.05);
 }
 
 #nightlight {
-	left:10.7%;
-	top:23%;
-	width:19%;
-	height: 25.5%;
-	transform: rotate(34deg);
+  left:10.7%;
+  top:23%;
+  width:19%;
+  height: 25.5%;
+  transform: rotate(34deg);
 }
 
 #aperture {
-	left:18%;
-	top:38%;
-	width:19%;
-	height: 26%;
-	transform: rotate(20deg);
+  left:18%;
+  top:38%;
+  width:19%;
+  height: 26%;
+  transform: rotate(20deg);
 }
 
 #shutter {
-	left:27.3%;
-	top:56.2%;
-	width:18%;
-	height: 26%;
-	transform: rotate(41deg);
+  left:27.3%;
+  top:56.2%;
+  width:18%;
+  height: 26%;
+  transform: rotate(41deg);
 }
 
 #indoor {
-	left:41.5%;
-	top:69.6%;
-	width:18%;
-	height: 25.5%;
-	transform: rotate(21.5deg);
+  left:41.5%;
+  top:69.6%;
+  width:18%;
+  height: 25.5%;
+  transform: rotate(21.5deg);
 }
 
 #daylight {
-	left:58.5%;
-	top:67.5%;
-	width:18.5%;
-	height: 25%;
-	transform: rotate(-4.5deg);
+  left:58.5%;
+  top:67.5%;
+  width:18.5%;
+  height: 25%;
+  transform: rotate(-4.5deg);
 }
