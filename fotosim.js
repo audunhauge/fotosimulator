@@ -126,8 +126,8 @@ function setup() {
   divInterface.onclick = function (e) {
     e = e || event;  // event is global in ie
     var target = e.target || e.srcElement;
-    if (target.id === "interface") {
-      return;
+    if (target.id === "interface" || target.id === "img_interface") {
+      return false;
       // Do nothing unless an overlay is clicked
     }
     idname = target.id;
