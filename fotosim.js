@@ -69,7 +69,7 @@ function setup() {
   //divIntro.addEventListener("click", startSimulation);
   //divView.addEventListener("click", endSimulation);
   //divHelpButton.addEventListener("click", showMeHelp);
-  divInterface.onclick = checkClick;
+  //divInterface.onclick = checkClick;
   divIntro.onclick = startSimulation;
   divView.onclick = endSimulation;
   divHelpButton.onclick = showMeHelp;
@@ -123,7 +123,7 @@ function setup() {
    * Activate intro for selected simulation
    * @param {MouseEvent} e
    */
-  function checkClick(e) {
+  divInterface.onclick = function (e) {
     var target = e.target || e.srcElement;
     if (target.id === "interface") {
       return;
@@ -223,11 +223,11 @@ function setup() {
 
     // activate all buttons (aperture,shutter,iso)
     //divButtons.addEventListener("click", adjustments);
-    divButtons.onclick = adjustments;
+    //divButtons.onclick = adjustments;
 
     // activate snap picture/ fire button
     //divFire.addEventListener("click", snapshot);
-    divFire.onclick = snapshot;
+    //divFire.onclick = snapshot;
 
     // set image to a dark nightlight to indicate no image
     divView.style.backgroundImage = 'url(images/sets/nightlightSet/15.jpg)';
@@ -241,7 +241,7 @@ function setup() {
    * The displays for aperture, shutter and iso are updated.
    * @param {MouseEvent} e
    */
-  function adjustments(e) {
+  divButtons.onclick = function (e) {
     //console.log(e.target);
     var but = e.target || e.srcElement;
     if (but.id.substr(0,4) !== 'ctrl') {
@@ -347,7 +347,7 @@ function setup() {
    * Plays shutter sound
    * @param {MouseEvent} e
    */
-  function snapshot(e) {
+  divFire.onclick = function(e) {
     if (snapping) return;
     var currentSetIndex = ev - evAdjust;
     if (currentSetIndex > currentSetArray.length - 1) {
