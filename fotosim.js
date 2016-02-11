@@ -124,6 +124,7 @@ function setup() {
    * @param {MouseEvent} e
    */
   divInterface.onclick = function (e) {
+    e = e || event;  // event is global in ie
     var target = e.target || e.srcElement;
     if (target.id === "interface") {
       return;
@@ -243,6 +244,7 @@ function setup() {
    */
   divButtons.onclick = function (e) {
     //console.log(e.target);
+    e = e || event;   // event is global in IE
     var but = e.target || e.srcElement;
     if (but.id.substr(0,4) !== 'ctrl') {
       return;   // not a ctrl_ button
