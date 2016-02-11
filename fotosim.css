@@ -186,8 +186,8 @@
 
 #view {
   position: absolute;
-  left:65;
-  top:180;
+  left:65px;
+  top:180px;
   width:249px;
   height: 200px;
   background-image : url(images/sets/nightlightSet/15.jpg);
