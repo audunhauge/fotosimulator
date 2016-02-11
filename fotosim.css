@@ -292,6 +292,7 @@
   height:35px;
   left:636px;
   top:355px;
+  -ms-transform: rotate(21deg);
   transform: rotate(21deg);
   border-radius: 45%;
   background-color: rgba(255,0,0,0.2);
