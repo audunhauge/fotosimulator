@@ -65,10 +65,15 @@ function setup() {
   var helpful = true;    // we deliver some helpful text on first use
 
   // basic eventhandlers for menu (interface), start/end simulation
-  divInterface.addEventListener("click", checkClick);
-  divIntro.addEventListener("click", startSimulation);
-  divView.addEventListener("click", endSimulation);
-  divHelpButton.addEventListener("click", showMeHelp);
+  //divInterface.addEventListener("click", checkClick);
+  //divIntro.addEventListener("click", startSimulation);
+  //divView.addEventListener("click", endSimulation);
+  //divHelpButton.addEventListener("click", showMeHelp);
+  divInterface.onclick = checkClick;
+  divIntro.onclick = startSimulation;
+  divView.onclick = endSimulation;
+  divHelpButton.onclick = showMeHelp;
+
 
   // change to hi-res menu image
   document.getElementById("img_interface").src="images/interface.png";
@@ -102,10 +107,11 @@ function setup() {
       divHelpful.classList.remove('done_reading');
       divHelpful.classList.add("let_me_read");
       // the impatient can remove the help-text
-      divHelpful.addEventListener("click", function(e) {
+      // divHelpful.addEventListener("click", function(e) {
+      divHelpful.onclick = function(e) {
         divHelpful.classList.remove('let_me_read');
         divHelpful.classList.add('done_reading');
-      });
+      };
       setTimeout(function(e) {
         divHelpful.classList.remove('let_me_read');
         divHelpful.classList.remove('done_reading');
@@ -216,10 +222,12 @@ function setup() {
     update_displays();
 
     // activate all buttons (aperture,shutter,iso)
-    divButtons.addEventListener("click", adjustments);
+    //divButtons.addEventListener("click", adjustments);
+    divButtons.onclick = adjustments;
 
     // activate snap picture/ fire button
-    divFire.addEventListener("click", snapshot);
+    //divFire.addEventListener("click", snapshot);
+    divFire.onclick = snapshot;
 
     // set image to a dark nightlight to indicate no image
     divView.style.backgroundImage = 'url(images/sets/nightlightSet/15.jpg)';
@@ -401,33 +409,3 @@ function setup() {
   }
 
 }
-
-// addEventListener polyfill 1.0 / Eirik Backer / MIT Licence
-(function(win, doc){
-	if(win.addEventListener) return;		//No need to polyfill
-
-	function docHijack(p){var old = doc[p];doc[p] = function(v){return addListen(old(v))}}
-	function addEvent(on, fn, self){
-		return (self = this).attachEvent('on' + on, function(e){
-			var e = e || win.event;
-			e.preventDefault  = e.preventDefault  || function(){e.returnValue = false}
-			e.stopPropagation = e.stopPropagation || function(){e.cancelBubble = true}
-			fn.call(self, e);
-		});
-	}
-	function addListen(obj, i){
-		if(i = obj.length)while(i--)obj[i].addEventListener = addEvent;
-		else obj.addEventListener = addEvent;
-		return obj;
-	}
-
-	addListen([doc, win]);
-	if('Element' in win)win.Element.prototype.addEventListener = addEvent;			//IE8
-	else{																			//IE < 8
-		doc.attachEvent('onreadystatechange', function(){addListen(doc.all)});		//Make sure we also init at domReady
-		docHijack('getElementsByTagName');
-		docHijack('getElementById');
-		docHijack('createElement');
-		addListen(doc.all);	
-	}
-})(window, document);
