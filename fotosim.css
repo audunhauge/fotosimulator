@@ -411,8 +411,9 @@ div.active > div {
 .overlay {
   position: absolute;
   filter: alpha(opacity=40);
+  opacity: 0.4;
   background: #222;
-  background: rgba(20,20,20,0.4);
+  /*background: rgba(20,20,20,0.4);*/
 }
 
 .overlay:hover {
