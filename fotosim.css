@@ -90,6 +90,7 @@
    height: 25px;
    top: 182px;
    left: 348px;
+   -ms-border-radius:15px;
    border-radius: 50%;
    opacity: 0.4;
    color:white;
