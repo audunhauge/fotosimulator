@@ -150,7 +150,7 @@ function setup() {
    * @param {MouseEvent} e
    */
   function startSimulation(e) {
-    var activated;
+    var activated, i;
     var ctrl;
 
     /*
@@ -194,7 +194,8 @@ function setup() {
     divSimula.style.visibility = "visible";
     document.querySelector("#controls").classList.add("controllme");
     activated = "aperture,shutter,iso".split(",");
-    for (ctrl of activated) {
+    for (i = 0; i < activated.length; i++) {
+      ctrl = activated[i];
       document.querySelector("#ctrl_" + ctrl).className = "passive";
     }
     if (attributes.controls !== "") {
@@ -203,7 +204,9 @@ function setup() {
       // otherwise all are active
       activated = attributes.controls.split(",");
     }
-    for (ctrl of activated) {
+    // for (ctrl of activated) {
+    for (i = 0; i < activated.length; i++) {
+      ctrl = activated[i];
       document.querySelector("#ctrl_" + ctrl).classList.remove("passive");
       document.querySelector("#ctrl_" + ctrl).classList.add("active");
     }
