@@ -421,6 +421,12 @@ function setup() {
 
 }
 
+if (!String.prototype.trim) {
+  String.prototype.trim = function () {
+    return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+  };
+}
+
 // needed as IE is just ...
 function hasClass(ele,cls) {
   return !!ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
