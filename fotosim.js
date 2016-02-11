@@ -118,7 +118,7 @@ function setup() {
    * @param {MouseEvent} e
    */
   function checkClick(e) {
-    var target = e.target;
+    var target = e.target || e.srcElement;
     if (target.id === "interface") {
       return;
       // Do nothing unless an overlay is clicked
@@ -235,7 +235,7 @@ function setup() {
    */
   function adjustments(e) {
     //console.log(e.target);
-    var but = e.target;
+    var but = e.target || e.srcElement;
     if (but.id.substr(0,4) !== 'ctrl') {
       return;   // not a ctrl_ button
     }
