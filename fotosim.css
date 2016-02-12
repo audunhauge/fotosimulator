@@ -77,12 +77,6 @@
   animation-fill-mode: forwards;
 }
 
-#helpful.done_reading {
-  visibility: visible;
-  animation: fadeaway 1s;
-  animation-fill-mode: forwards;
-}
-
 #helpbutton {
    position: absolute;
    background: blue;
@@ -98,17 +92,6 @@
    text-align: center;
    z-index: 1000;
    cursor: help;
-}
-
-@keyframes fadeaway {
-  1% { opacity: 1;}
-  100% { opacity: 0.0; 
-         background: blue;
-         width: 5px;
-         height: 5px;
-         top: 182px;
-         left: 180px;
-       }
 }
 
 @keyframes readme {
@@ -278,12 +261,20 @@
   background-color: rgba(255,0,0,0.2);
 }
 
+#ctrl_iso.active {
+    cursor: n-resize;
+}
+
 #ctrl_iso_left {
   position: absolute;
   width:21px;
   height:20px;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
+}
+
+#ctrl_iso.active > #ctrl_iso_left {
+    cursor: s-resize;
 }
 
 #ctrl_fire {
@@ -306,7 +297,6 @@ div.active {
 div.active > div {
   cursor: n-resize;
 }
-
 
 .passive {
   opacity: 0;
@@ -356,7 +346,6 @@ div.active > div {
 }
 
 
-
 /*
  *  the background image is blurred - we are focused
  *  on the camera
@@ -368,7 +357,14 @@ div.active > div {
 }
 
 @keyframes blurme {
-  100% { -webkit-filter: blur(5px);}
+  100% { 
+         filter: blur(5px);    
+         -webkit-filter: blur(5px);     
+         -moz-filter: blur(5px);
+         -o-filter: blur(5px); 
+         -ms-filter: blur(5px);
+         
+       }
 }
 
 

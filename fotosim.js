@@ -103,25 +103,14 @@ function setup() {
   })();
 
   function showMeHelp(e) {
+      // remove class first to ensure animation is triggered
       removeClass(divHelpful,'let_me_read');
-      removeClass(divHelpful,'done_reading');
       addClass(divHelpful,'let_me_read');
-      //divHelpful.classList.remove('let_me_read');
-      //divHelpful.classList.remove('done_reading');
-      //divHelpful.classList.add("let_me_read");
-      // the impatient can remove the help-text
-      // divHelpful.addEventListener("click", function(e) {
       divHelpful.onclick = function(e) {
         removeClass(divHelpful,'let_me_read');
-        addClass(divHelpful,'done_reading');
-        //divHelpful.classList.remove('let_me_read');
-        //divHelpful.classList.add('done_reading');
       };
       setTimeout(function(e) {
         removeClass(divHelpful,'let_me_read');
-        removeClass(divHelpful,'done_reading');
-        //divHelpful.classList.remove('let_me_read');
-        //divHelpful.classList.remove('done_reading');
       }, 14000);
   }
 
@@ -229,14 +218,6 @@ function setup() {
     fullScreen();
     update_displays();
 
-    // activate all buttons (aperture,shutter,iso)
-    //divButtons.addEventListener("click", adjustments);
-    //divButtons.onclick = adjustments;
-
-    // activate snap picture/ fire button
-    //divFire.addEventListener("click", snapshot);
-    //divFire.onclick = snapshot;
-
     // set image to a dark nightlight to indicate no image
     divView.style.backgroundImage = 'url(images/sets/nightlightSet/15.jpg)';
   }
@@ -264,7 +245,7 @@ function setup() {
     }
     var operator = but.id.substr(5);
     switch(operator) {
-      case 'shutter':
+      case 'shutter_left':
         if (shutterIndex > 0) {
           shutterIndex -= 1;
           ev -= 1;
@@ -272,7 +253,7 @@ function setup() {
           // auto-adjust aperture if called for
         }
         break;
-      case 'shutter_left':
+      case 'shutter':
         if (shutterIndex < shutterList.length -1) {
           shutterIndex += 1;
           ev += 1;
