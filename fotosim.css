@@ -175,9 +175,12 @@
  * width < 700
  */
 #camera.compact {
-  left:-58px;
-  bottom: 100px;
+  left:0px;
+  height: 500px;
+  width: 500px;
+  bottom: 0px;
   margin: 0;
+  background-image: url("images/smallcam.png");
 }
 
 
@@ -232,17 +235,73 @@
 #camera.compact #controls {
   bottom: -132px;
   right: 113px;
+  background-image: none;
+}
+
+#camera.compact #helpbutton {
+  top: 166px;
+  left: 359px;
+}
+
+#camera.compact #view {
+  width: 288px;
+  height: 236px;
+  top: 159px;
+  left: 30px;
 }
 
 #camera.compact #buttons {
   position: absolute;
-  left: -271px;
-  top: 126px;
+  left: 804px;
+  top: 11px;
+  transform: scaleX(-1);
 }
 
 #camera.compact #ctrl_fire {
-  left: 366px;
-  top: 483px;
+  left: 17px;
+  top: 422px;
+  width:76px;
+  height:44px;
+  -ms-transform: rotate(-21deg);
+  transform: rotate(-21deg);
+}
+
+#camera.compact #ctrl_iso {
+  left: 522px;
+  top: 420px;
+  width: 54px;
+  transform: scaleX(-1);
+}
+
+#camera.compact #ctrl_aperture {
+  transform: scaleX(-1);
+}
+
+#camera.compact #ctrl_shutter {
+  left: 619px;
+  top: 422px;
+  width: 72px;
+  transform: scaleX(-1);
+}
+
+#camera.compact #controls {
+  left: 81px;
+  top: 333px;
+}
+
+#camera.compact #display_aperture {
+  left: 291px;
+  top: 130px;
+}
+
+#camera.compact #display_shutter {
+  left: 39px;
+  top: 130px;
+}
+
+#camera.compact #display_iso {
+  left: 147px;
+  top: 130px;
 }
 
 
@@ -337,7 +396,7 @@ div.active > div {
 }
 
 .passive {
-  opacity: 0;
+  opacity: 0.7;
 }
 
 .active:hover {
@@ -349,7 +408,7 @@ div.active > div {
  */
 
 .active {
-  opacity:0;
+  opacity:0.7;
   animation: showme 1s 1s;
 }
 
