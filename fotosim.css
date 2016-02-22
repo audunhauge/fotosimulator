@@ -71,6 +71,12 @@
   overflow: hidden;
 }
 
+#camera.compact #helpful ,
+#camera.no_margin #helpful {
+  margin: 0;
+  left: 65px;   /* compensate for camera shifted left */
+}
+
 #helpful.let_me_read {
   visibility: visible;
   animation: readme 13s;
@@ -96,20 +102,16 @@
 
 @keyframes readme {
   1% { opacity: 1;}
-  95% { opacity: 1;
+  99% { opacity: 1;
         background: rgba(200,200,200,0.8);
         width:475px;
         height: 180px;
-        left: 0;
-        top: -100;
       }
   /* zooms down onto help button */
   100% { opacity: 0;
          background: blue;
          width: 5px;
          height: 5px;
-         top: 182px;
-         left: 180px;
        }
 }
 
@@ -162,6 +164,16 @@
   background-position: center center;
 }
 
+/*
+ * 700 < width < 850
+ */
+#camera.no_margin {
+   margin: 0;
+}
+
+/*
+ * width < 700
+ */
 #camera.compact {
   left:-58px;
   bottom: 100px;

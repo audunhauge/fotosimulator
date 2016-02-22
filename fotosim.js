@@ -66,11 +66,6 @@ function setup() {
   var helpful = true;    // we deliver some helpful text on first use
 
   // basic eventhandlers for menu (interface), start/end simulation
-  //divInterface.addEventListener("click", checkClick);
-  //divIntro.addEventListener("click", startSimulation);
-  //divView.addEventListener("click", endSimulation);
-  //divHelpButton.addEventListener("click", showMeHelp);
-  //divInterface.onclick = checkClick;
   divIntro.onclick = startSimulation;
   divView.onclick = endSimulation;
   divHelpButton.onclick = showMeHelp;
@@ -81,7 +76,7 @@ function setup() {
 
 
   /**
-   * Start preloading av image sets
+   * Start preloading image sets
    * Read filenames from imageset and add an img element
    *   for each file in the preload div.
    * Without this there will be a delay while image is fetched
@@ -162,10 +157,15 @@ function setup() {
               || document.documentElement.clientWidth
               || document.body.clientWidth;
     
-    removeClass(divCamera, "compact");    // assume we have space enuf      
+    removeClass(divCamera, "compact");    // assume we have space enuf    
+    removeClass(divCamera, "no_margin"); 
         
     if (stageWidth < 850) {
-      addClass(divCamera, "compact");     // place controls below, shift camera left and up
+      if (stageWidth < 700) {
+        addClass(divCamera, "compact");     // place controls below, shift camera left and up
+      } else {
+        addClass(divCamera, "no_margin");   // remove margins if  700 < w < 850
+      }
     }              
 
     /*
@@ -210,23 +210,29 @@ function setup() {
     divBack.style.backgroundImage = 'url(' + attributes.prependURLs + 'index.jpg)';
     divSimula.style.visibility = "visible";
     addClass(document.getElementById("controls"), "controllme");
+    
+    // set all controls to passive at start
     activated = "aperture,shutter,iso".split(",");
     for (i = 0; i < activated.length; i++) {
       ctrl = activated[i];
       document.getElementById("ctrl_" + ctrl).className = "passive";
     }
+    
     if (attributes.controls !== "") {
       // if attribute.controls is not empty
       // then it contains list of active controls
       // otherwise all are active
       activated = attributes.controls.split(",");
     }
-    // for (ctrl of activated) {
+    
+    // activate controls for this set, default is all controls active
     for (i = 0; i < activated.length; i++) {
       ctrl = activated[i];
       removeClass(document.getElementById("ctrl_" + ctrl), "passive");
       addClass(document.getElementById("ctrl_" + ctrl), "active");
     }
+    
+    // the fire-button is allways active
     addClass(document.getElementById("ctrl_fire"), "active");
     addClass(divBack, "blur");
     fullScreen();
@@ -391,6 +397,7 @@ function setup() {
     removeClass(document.getElementById("ctrl_fire"), "active");
     removeClass(divHelpful, 'let_me_read');
     removeClass(divHelpful, 'done_reading');
+    exitFullscreen();
   }
 
   /**
@@ -401,7 +408,7 @@ function setup() {
    * press again to toggle
    */
   function fullScreen() {
-     /*
+    /*
     if (divSimula.requestFullscreen) {
       divSimula.requestFullscreen();
     } else if (divSimula.webkitRequestFullscreen) {
@@ -411,7 +418,21 @@ function setup() {
     } else if (divSimula.msRequestFullscreen) {
       divSimula.msRequestFullscreen();
     }
-    */
+    //*/
+  }
+  
+  function exitFullscreen() {
+    /*
+     if (document.exitFullscreen) {
+      document.exitFullscreen();
+     } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+     } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+     } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+     }
+    // */
   }
 
 }
