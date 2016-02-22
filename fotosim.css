@@ -162,6 +162,12 @@
   background-position: center center;
 }
 
+#camera.compact {
+  left:-58px;
+  bottom: 100px;
+  margin: 0;
+}
+
 
 /*
  *  the preview window
@@ -205,6 +211,26 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+/*
+ * If stage is tiny, shift the camera left and up
+ * and place the controls underneath
+ */
+#camera.compact #controls {
+  bottom: -132px;
+  right: 113px;
+}
+
+#camera.compact #buttons {
+  position: absolute;
+  left: -271px;
+  top: 126px;
+}
+
+#camera.compact #ctrl_fire {
+  left: 366px;
+  top: 483px;
 }
 
 

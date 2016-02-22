@@ -18,6 +18,7 @@ function setup() {
   var divButtons = document.getElementById("buttons");       // buttons for aperture ..
   var divHelpful = document.getElementById("helpful");       // helptext for first usage
   var divHelpButton = document.getElementById("helpbutton"); // show help
+  var divCamera =  document.getElementById("camera");        // div containing camrea
 
   // displays for aperture, shutter and iso settings
   var dispAperture = document.getElementById("display_aperture");
@@ -154,7 +155,18 @@ function setup() {
    */
   function startSimulation(e) {
     var activated, i;
-    var ctrl;
+    var ctrl;                // camera controls on screen
+    var stageWidth;          // if width is too small - we rearrange the layout
+    
+    stageWidth = window.innerWidth
+              || document.documentElement.clientWidth
+              || document.body.clientWidth;
+    
+    removeClass(divCamera, "compact");    // assume we have space enuf      
+        
+    if (stageWidth < 850) {
+      addClass(divCamera, "compact");     // place controls below, shift camera left and up
+    }              
 
     /*
     // This is code for setting up vars copied from Fotosimulator.as
@@ -189,6 +201,8 @@ function setup() {
       helpful = false;    // been there, done that
       showMeHelp(null);
     }
+    
+    
 
     // set up backgrounds and visibility
     divIntro.style.visibility = "hidden";
@@ -402,6 +416,10 @@ function setup() {
 
 }
 
+/**
+ *  Add trim() to string if missing
+ *  removes leading/trailing spaces 
+ */
 if (!String.prototype.trim) {
   String.prototype.trim = function () {
     return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
@@ -413,10 +431,24 @@ function hasClass(ele,cls) {
   return !!ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
 }
 
+/**
+ *  As old IE versions don't support classlist
+ *  @param {DOMelement} ele
+ *  @param {string} cls
+ */
 function addClass(ele,cls) {
-  if (!hasClass(ele,cls)) ele.className = ele.className.trim() + " " + cls;
+  var nuClass;
+  if (!hasClass(ele,cls)) {
+    nuClass = ele.className.trim() + " " + cls;
+    ele.className = nuClass.trim();
+  }
 }
 
+/**
+ *  As old IE versions don't support classlist
+ *  @param {DOMelement} ele
+ *  @param {string} cls
+ */
 function removeClass(ele,cls) {
   if (hasClass(ele,cls)) {
     var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
