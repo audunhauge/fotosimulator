@@ -1,0 +1,38 @@
+/*
+ *  lock icon 12x12
+ */
+.lock {
+  display: inline-block;
+  position:relative;
+  top: -3px;
+  left: 0px;
+  margin-left:2px;
+  width: 6px;
+  height: 8px;
+  border: solid gray 1px;
+  border-radius: 40%;
+}
+.lock:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left:-3px;
+  top:4px;
+  width: 10px;
+  height: 8px;
+  border: solid gray 1px;
+  background: ghostwhite;
+  border-radius: 20%;
+}
+
+.lock:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left:2px;
+  top:7px;
+  width: 0px;
+  height: 2px;
+  border: solid rgba(20,20,20,0.3) 1px;
+  border-radius: 20%;
+}
