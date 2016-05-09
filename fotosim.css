@@ -1,562 +1,124 @@
 /*
- *  main - container for interface and intro
- */
-
-#main {
-  position: relative;
-  width:575px;
-  height: 375px;
-  margin-top:4em;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/*
- *  shows girl with pictures on a line
- *  on-click for each picture
- */
-#interface {
-  position: absolute;
-  width:575px;
-  height: 375px;
-}
-
-/*
  *   Preload images for better response
  */
- #preload {
+#preload {
    position: absolute;
    overflow: hidden;
    left: -9999px;
    top: -9999px;
    height: 1px;
    width: 1px;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 700px;
+  width: 1100px;
+  justify-content: flex-start;
+}
+
+#leksjon {
+  order: 3;
+  border: solid gray 1px;
+  width:205px;
+  height: 195px; 
+}
+
+#settings {
+  order: 1;
+  flex: 1 1 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.controls {
+  width:175px;
+  height: 75px; 
+  padding: 15px;
+}
+
+.controls select {
+  width: 150px;
+}
+
+
+#program {
+  order: 2;
+  width:185px;
+  height: 160px;
+  padding:10px;
+}
+
+ #program label {
+   display:block;
+   padding: 5px;
+   padding-top:3px;
  }
 
-/*
- *  containes the lightbox
- *  background changes to selected image
- */
-#intro {
-  position: absolute;
-  width:575px;
-  height: 375px;
-  display: inline-block;
-  visibility: hidden;
-  background-image: url("images/interface.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  transition: background-image 1s ease-in-out;
-}
 
-/*
- *   Helpful hints on usage - shown first time only
- *   Fades away after 13s
- */
-#helpful {
-  position:absolute;
-  width:475px;
-  height: 180px;
-  border:solid gray 2px;
-  border-radius: 1em;
-  background: rgba(200,200,200,0.8);
-  padding: 1em;
-  text-align: center;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: -100;
-  visibility: hidden;
-  overflow: hidden;
-}
-
-#camera.compact #helpful ,
-#camera.no_margin #helpful {
-  margin: 0;
-  left: 65px;   /* compensate for camera shifted left */
-}
-
-#helpful.let_me_read {
-  visibility: visible;
-  animation: readme 13s;
-  animation-fill-mode: forwards;
-}
-
-#helpbutton {
-   position: absolute;
-   background: blue;
-   width: 33px;
-   height: 25px;
-   top: 182px;
-   left: 348px;
-   -ms-border-radius:15px;
-   border-radius: 50%;
-   opacity: 0.4;
-   color:white;
-   padding-top:8px;
-   text-align: center;
-   z-index: 1000;
-   cursor: help;
-}
-
-@keyframes readme {
-  1% { opacity: 1;}
-  99% { opacity: 1;
-        background: rgba(200,200,200,0.8);
-        width:475px;
-        height: 180px;
-      }
-  /* zooms down onto help button */
-  100% { opacity: 0;
-         background: blue;
-         width: 5px;
-         height: 5px;
-       }
-}
-
-/*
- *  container for camera simulation
- */
-
-#simula {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width:100%;
-  height:100%;
-  visibility: hidden;
-}
-
-/*
- *  background image - will be blurred
- */
-
-
-#back {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width:100%;
-  height:100%;
-  background-image: none;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/*
- *  the camera
- */
-
-#camera {
-  position: absolute;
-  bottom:20px;
-  margin-left:auto;
-  margin-right:auto;
-  left:0;
-  right:0;
-  width:575px;
-  height: 436px;
-  background-image: url("images/camera.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/*
- * 700 < width < 850
- */
-#camera.no_margin {
-   margin: 0;
-}
-
-/*
- * width < 700
- */
-#camera.compact {
-  left:0px;
-  height: 500px;
-  width: 500px;
-  bottom: 0px;
-  margin: 0;
-  background-image: url("images/smallcam.png");
-}
-
-
-/*
- *  the preview window
- */
 
 #view {
-  position: absolute;
-  left:65px;
-  top:180px;
-  width:249px;
-  height: 200px;
-  background-image : url(images/sets/nightlightSet/15.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  transition: background-image 0.1s ease-in-out;
-}
-
-
-#view.snap {
-   animation: blink 0.05s;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
+  order: 4;
+  flex: 0 1 auto;
+  width: 880px;
+  height: 700px;
+  border: solid gray 1px;
 }
 
 
 
-/*
- *  the controls panel - animated into position
- */
 
-#controls {
-  position: absolute;
-  width:405px;
-  height: 185px;
-  bottom:-5px;
-  right: -158px;
-  background-image: url("images/control.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+@media (max-width: 618px) {
+ #settings {
+  flex: 0 1 450px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+ }
+  
+ #main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 480px;
+  height: 700px;
+  justify-content: flex-start;
+ }  
+ 
+ #view {
+  order: 3;
+  width: 100%;
+  height: 380px;
 }
 
-/*
- * If stage is tiny, shift the camera left and up
- * and place the controls underneath
- */
-#camera.compact #controls {
-  bottom: -132px;
-  right: 113px;
-  background-image: none;
-}
+ .controls {
+  width: 170px;
+  height: 80px; 
+ }
+ 
+ #aperture {
+   order: 2;
+ }
 
-#camera.compact #helpbutton {
-  top: 166px;
-  left: 359px;
-}
+ #program {
+  width:220px;
+  height: 60px;
+ }
 
-#camera.compact #view {
-  width: 288px;
-  height: 236px;
-  top: 159px;
-  left: 30px;
-}
-
-#camera.compact #buttons {
-  position: absolute;
-  left: 804px;
-  top: 11px;
-  transform: scaleX(-1);
-}
-
-#camera.compact #ctrl_fire {
-  left: 17px;
-  top: 422px;
-  width:76px;
-  height:44px;
-  -ms-transform: rotate(-21deg);
-  transform: rotate(-21deg);
-}
-
-#camera.compact #ctrl_iso {
-  left: 522px;
-  top: 420px;
-  width: 54px;
-  transform: scaleX(-1);
-}
-
-#camera.compact #ctrl_aperture {
-  transform: scaleX(-1);
-}
-
-#camera.compact #ctrl_shutter {
-  left: 619px;
-  top: 422px;
-  width: 72px;
-  transform: scaleX(-1);
-}
-
-#camera.compact #controls {
-  left: 81px;
-  top: 333px;
-}
-
-#camera.compact #display_aperture {
-  left: 291px;
-  top: 130px;
-}
-
-#camera.compact #display_shutter {
-  left: 39px;
-  top: 130px;
-}
-
-#camera.compact #display_iso {
-  left: 147px;
-  top: 130px;
+ #leksjon {
+  order: 4;
+  width: 100%;
+  height: 110px;
+ }
+ 
+ #program label {
+   display:inline;
+   padding: 1px;
+ }
+  
 }
 
 
-/*
- *  Next 4 are specific overlays on the control-panel,
- *  they are 0.2 opacity overlays that show on hover.
- *  They also flash visible for 1s at start
- *  so user sees active controls.
- */
-
-#ctrl_shutter {
-  position: absolute;
-  width:63px;
-  height:15px;
-  left:465px;
-  top:363px;
-  border-radius: 23%;
-  background-color: rgba(255,0,0,0.2);
-}
-
-#ctrl_shutter_left {
-  position: absolute;
-  width:31px;
-  height:15px;
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px;
-}
-
-#ctrl_aperture {
-  position: absolute;
-  width:120px;
-  height:120px;
-  left:334px;
-  top:260px;
-  border-radius: 60px;
-  background-color: rgba(255,0,0,0.2);
-}
-
-#ctrl_aperture_left {
-  position: absolute;
-  width:60px;
-  height:120px;
-  border-bottom-left-radius: 60px;
-  border-top-left-radius: 60px;
-}
-
-#ctrl_iso {
-  position: absolute;
-  width:43px;
-  height:20px;
-  left:562px;
-  top:360px;
-  border-radius: 34%;
-  background-color: rgba(255,0,0,0.2);
-}
-
-#ctrl_iso.active {
-    cursor: n-resize;
-}
-
-#ctrl_iso_left {
-  position: absolute;
-  width:21px;
-  height:20px;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-}
-
-#ctrl_iso.active > #ctrl_iso_left {
-    cursor: s-resize;
-}
-
-#ctrl_fire {
-  position: absolute;
-  width:62px;
-  height:35px;
-  left:636px;
-  top:355px;
-  -ms-transform: rotate(21deg);
-  transform: rotate(21deg);
-  border-radius: 45%;
-  background-color: rgba(255,0,0,0.2);
-  cursor: pointer;
-}
-
-div.active {
-  cursor: s-resize;
-}
-
-div.active > div {
-  cursor: n-resize;
-}
-
-.passive {
-  opacity: 0;
-}
-
-.active:hover {
-  opacity: 1;
-}
-
-/*
- *  flash active controls at startup
- */
-
-.active {
-  opacity:0;
-  animation: showme 1s 1s;
-}
-
-@keyframes showme {
-  to { opacity: 1; }
-}
-
-
-.display {
-  position: absolute;
-  width: 60px;
-  height: 20px;
-  font-size: 0.9em;
-  color: white;
-  background-color: rgba(96, 98, 72, 0.8);
-  text-align: center;
-}
-
-#display_aperture {
-  left:37px;
-  top: 130px;
-}
-
-#display_shutter {
-  left:139px;
-  top: 130px;
-}
-
-#display_iso {
-  left:227px;
-  top: 130px;
-}
-
-
-/*
- *  the background image is blurred - we are focused
- *  on the camera
- */
-
-.blur {
-  animation: blurme 7s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes blurme {
-  100% { 
-         filter: blur(5px);
-         -webkit-filter: blur(5px);
-         -moz-filter: blur(5px);
-         -o-filter: blur(5px);
-         -ms-filter: blur(5px);
-       }
-}
-
-
-/*
- *  the add-on control panel is animated in from the right
- */
-
-.controllme {
-  animation: moveinn 1s ease-in;
-}
-
-@keyframes  moveinn {
-  from { right:-500px; }
-}
-
-
-/*
- *  lightbox to show info before each simulation
- */
-
-#lightbox {
-  width:475px;
-  height: 275px;
-  border:solid gray 2px;
-  border-radius: 1em;
-  background: rgba(200,200,200,0.75);
-  padding: 1em;
-  text-align: center;
-  margin: auto;
-  margin-top:2em;
-}
-
-
-/*
- *  these divs are covers for pics in main menu
- *  position and rotation so that they fit approx
- *  so all pics are covered by gray shadow
- *  the hovered pic gets cleared (shows brighter)
- *  all are given class overlay
- */
-
-.overlay {
-  position: absolute;
-  filter: alpha(opacity=40);
-  opacity: 0.4;
-  background: #222;
-  /*background: rgba(20,20,20,0.4);*/
-}
-
-.overlay:hover {
-  background: #aaa;
-  filter: alpha(opacity=4);
-  background: rgba(200,200,200,0.05);
-}
-
-#nightlight {
-  left:10.7%;
-  top:23%;
-  width:19%;
-  height: 25.5%;
-  -ms-transform: rotate(34deg);
-  transform: rotate(34deg);
-}
-
-#aperture {
-  left:18%;
-  top:38%;
-  width:19%;
-  height: 26%;
-  -ms-transform: rotate(20deg);
-  transform: rotate(20deg);
-}
-
-#shutter {
-  left:27.3%;
-  top:56.2%;
-  width:18%;
-  height: 26%;
-  -ms-transform: rotate(41deg);
-  transform: rotate(41deg);
-}
-
-#indoor {
-  left:41.5%;
-  top:69.6%;
-  width:18%;
-  height: 25.5%;
-  -ms-transform: rotate(21.5deg);
-  transform: rotate(21.5deg);
-}
-
-#daylight {
-  left:58.5%;
-  top:67.5%;
-  width:18.5%;
-  height: 25%;
-  -ms-transform: rotate(-4.5deg);
-  transform: rotate(-4.5deg);
-}

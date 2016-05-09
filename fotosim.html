@@ -2,64 +2,31 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="icons.css">
     <link rel="stylesheet" href="fotosim.css">
-    <script src="howler.min.js"></script>
     <script src="interface.js"></script>
     <script src="images/sets/sets.js"></script>
     <script src="fotosim.js"></script>
   </head>
   <body>
   <div id="main">
-    <div id="interface">
-      <img id="img_interface" src="images/smaller.jpg" />
-      <div class="overlay" id="nightlight"></div>
-      <div class="overlay" id="aperture"></div>
-      <div class="overlay" id="shutter"></div>
-      <div class="overlay" id="indoor"></div>
-      <div class="overlay" id="daylight"></div>
-    </div>
-    <div id="intro">
-      <div id="lightbox">
-      <h4 id="title">tittel</h4>
-      <div id="text">text</div>
-      </div>
-    </div>
-  </div>
-  <div id="simula">
-    <div id="back">
-    </div>
-    <div id="camera">
-      <div id="view" title="Klikk for Tilbake til meny"></div>
-      <div id="controls">
-        <div id="display_aperture" class="display"></div>
-        <div id="display_shutter" class="display"></div>
-        <div id="display_iso" class="display"></div>
-      </div>
-      <div id="buttons">
-        <div id="ctrl_aperture">
-          <div id="ctrl_aperture_left"></div>
-        </div>
-        <div id="ctrl_shutter">
-          <div id="ctrl_shutter_left"></div>
-        </div>
-        <div id="ctrl_iso">
-          <div id="ctrl_iso_left"></div>
-        </div>
-      </div>
-      <div id="ctrl_fire"></div>
-      <div id="helpbutton">?</div>
-      <div id="helpful">
-        Velg innstillinger ved å klikke på kontrollknappene.
-        Du kan stille inn de som blinket rødt ved oppstart.
-        Fra venstre har vi: aperture, lukker og iso.
-        Muspekeren skifter form når du er over en aktiv kontrol,
-        kontrollen vil også vises med rød farge.
-        Klikk på knappen helt til høyre for å ta bildet.
-        Bildet på kameraskjermen vil da oppdateres.
+    <div id="settings">
+      <div class="controls" id="iso"></div>
+      <div class="controls" id="aperture"></div>
+      <div class="controls" id="shutter"></div>
+      <div id="program">
+        Program <span id="progLock"></span>
         <p>
-        Klikk på kameraskjermen for å komme tilbake til menyen.
+        <div id="progRadio">
+          <label ><input type="radio" name="prog" value="manual">Manual</label>
+          <label ><input type="radio" name="prog" value="tv">TV</label>
+          <label ><input type="radio" name="prog" value="av">AV</label>
+          <label ><input type="radio" name="prog" value="p">P</label>
+        </div>
       </div>
     </div>
+    <div id="leksjon"></div>
+    <div id="view"></div>
   </div>
   <div id="preload">
     <!-- preload images -->
