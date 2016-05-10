@@ -14,21 +14,22 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 700px;
+  height: 770px;
   width: 1100px;
   justify-content: flex-start;
+  background-image: url("stor.png");
 }
 
 #leksjon {
   order: 3;
   width:205px;
   height: 195px; 
-  background: whitesmoke;
+  background: rgba(250,250,250,0.3);
 }
 
 #settings {
   order: 1;
-  flex: 1 1 2;
+  flex: 0 1 auto;
   display: flex;
   flex-direction: column;
 }
@@ -37,6 +38,7 @@
   width:175px;
   height: 75px; 
   padding: 15px;
+  padding-left: 20px;
 }
 
 .controls select {
@@ -49,6 +51,7 @@
   width:185px;
   height: 160px;
   padding:10px;
+  padding-left:20px;
 }
 
 #program label {
@@ -62,7 +65,7 @@
   flex: 0 1 auto;
   width: 880px;
   height: 700px;
-  border: solid gray 1px;
+  border: solid green 1px;
 }
 
 #leksjonListe {
@@ -87,23 +90,25 @@
  }
   
  #main {
+  padding:5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 480px;
-  height: 700px;
+  width: 540px;
+  height: 740px;
   justify-content: flex-start;
+  background-image: url("liten.png");
  }  
  
  #view {
   order: 3;
   width: 100%;
-  height: 380px;
+  height: 420px;
 }
 
  .controls {
   width: 170px;
-  height: 80px; 
+  height: 70px; 
  }
  
  #aperture {
@@ -111,7 +116,8 @@
  }
 
  #program {
-  width:220px;
+  margin-left:12px;
+  width:210px;
   height: 60px;
  }
 
@@ -130,10 +136,14 @@
   flex-direction: row;
   white-space: nowrap;
   flex-wrap: wrap;
+  justify-content: flex-start;
  }
  
   #leksjonListe div {
-   padding-left: 15px;
+   font-size: 0.8em;
+   width:165px;
+   padding-left:15px;
+   padding-top:2px;
  }
 
   
