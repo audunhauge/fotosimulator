@@ -11,11 +11,17 @@
   <body>
   <div id="main">
     <div id="settings">
-      <div class="controls" id="iso"></div>
-      <div class="controls" id="aperture"></div>
-      <div class="controls" id="shutter"></div>
+      <div class="controls" id="iso">
+        ISO <span class="lock"></span>
+      </div>
+      <div class="controls" id="aperture">
+         Aperture <span class="lock"></span>
+      </div>
+      <div class="controls" id="shutter">
+        Shutter <span class="lock"></span>
+      </div>
       <div id="program">
-        Program <span id="progLock"></span>
+        Program <span></span>
         <p>
         <div id="progRadio">
           <label ><input type="radio" name="prog" value="manual">Manual</label>
@@ -25,7 +31,11 @@
         </div>
       </div>
     </div>
-    <div id="leksjon"></div>
+    <div id="leksjon">
+      <h4>Velg motiv/leksjon</h4>
+      <div id="leksjonListe">
+      </div>
+    </div>
     <div id="view"></div>
   </div>
   <div id="preload">

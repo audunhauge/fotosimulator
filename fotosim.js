@@ -11,32 +11,51 @@ function setup() {
   var aperture = document.getElementById("aperture");
   var shutter = document.getElementById("shutter");
   var program = document.getElementById("program");
+  var leksjon = document.getElementById("leksjonListe");
   
-  iso.innerHTML = ' ISO <span class="lock"></span>'
-     + ' <p><select id="selIso">'
+  
+  iso.innerHTML += 
+      ' <p><select id="selIso">'
      + ' <option>3200</option>'
      + ' <option>A</option>'
      + ' <option>B</option>'
      + ' <option>C</option>'
      + '</select>';
      
-  aperture.innerHTML = ' Aperture '
-     + ' <p><select id="selAperture">'
+  aperture.innerHTML += 
+      ' <p><select id="selAperture">'
      + ' <option>Velg blenderåpning</option>'
      + ' <option>A</option>'
      + ' <option>B</option>'
      + ' <option>C</option>'
      + '</select>';
           
-  shutter.innerHTML = ' Shutter <span class="lock"></span>'
-     + ' <p><select id="selShutter">'
+  shutter.innerHTML += 
+      ' <p><select id="selShutter">'
      + ' <option>1/250</option>'
      + ' <option>A</option>'
      + ' <option>B</option>'
      + ' <option>C</option>'
      + '</select>'; 
+   
+   lagSetListe(leksjon);  
+  
      
 }
+
+/***
+ *  lager en liste av sett med bilder
+ *  @param {DOM} pater - dom-element to append children to
+ */
+function lagSetListe(pater) {
+   var setTitle;
+   var lnkSet;
+   for (setTitle in infolist) {
+     lnkSet = document.createElement('div');
+     lnkSet.innerHTML = infolist[setTitle].link;
+     pater.appendChild(lnkSet);
+   }
+ };
   
 /**
  *  Add trim() to string if missing
