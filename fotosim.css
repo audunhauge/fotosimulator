@@ -15,16 +15,10 @@
   flex-direction: column;
   flex-wrap: wrap;
   height: 770px;
-  width: 1100px;
+  width: 100%;
   justify-content: flex-start;
-  background-image: url("stor.png");
-}
-
-#leksjon {
-  order: 3;
-  width:205px;
-  height: 195px; 
-  background: rgba(250,250,250,0.3);
+  background-image: url("stor.png"); 
+  padding-left:10px;
 }
 
 #settings {
@@ -32,6 +26,8 @@
   flex: 0 1 auto;
   display: flex;
   flex-direction: column;
+  margin-top:30px;
+  width:240px;
 }
 
 .controls {
@@ -52,6 +48,7 @@
   height: 160px;
   padding:10px;
   padding-left:20px;
+  margin-top: 20px;
 }
 
 #program label {
@@ -64,8 +61,17 @@
   order: 4;
   flex: 0 1 auto;
   width: 880px;
-  height: 700px;
+  height: 750px;
   border: solid green 1px;
+  position: relative;
+}
+
+#leksjon {
+  order: 3;
+  width:205px;
+  height: 195px; 
+  background: rgba(250,250,250,0.3);
+  margin-top: 10px;
 }
 
 #leksjonListe {
@@ -74,8 +80,19 @@
 }
 
 #leksjon h4 {
-  padding-left: 12px;
+  padding:0;
+  padding-left: 16px;
+  font-size:1.4em;
+  margin-top: 20px;
+  margin-bottom:8px;
 }
+
+#leksjonListe div {
+   width:165px;
+   padding-left:18px;
+   white-space: nowrap;
+   padding-top:5px;
+ }
 
 
 
@@ -83,20 +100,17 @@
 @media (max-width: 618px) {
  #settings {
   flex: 0 1 450px;
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-top:0px;
  }
   
  #main {
   padding:5px;
-  display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   width: 540px;
   height: 740px;
-  justify-content: flex-start;
   background-image: url("liten.png");
  }  
  
@@ -104,7 +118,8 @@
   order: 3;
   width: 100%;
   height: 420px;
-}
+  margin-left: 0px;
+ }
 
  .controls {
   width: 170px;
@@ -119,6 +134,8 @@
   margin-left:12px;
   width:210px;
   height: 60px;
+  padding: 5px;
+  margin-top:8px;
  }
 
  #leksjon {
@@ -140,12 +157,19 @@
  }
  
   #leksjonListe div {
-   font-size: 0.8em;
-   width:165px;
    padding-left:15px;
    padding-top:2px;
  }
-
+ 
+ #view > div {
+   position: absolute;
+   top:20px;
+   left:20px;
+ }
+ 
+ #status {
+   
+ }
   
 }
 
