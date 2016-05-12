@@ -200,7 +200,7 @@
 
 @media (max-width: 618px) 
        , handheld 
-       , (max-device-width: 700px) {
+       , (orientation: portrait) and (max-device-width: 700px) {
  #settings {
   flex: 0 1 450px;
   flex-direction: row;
