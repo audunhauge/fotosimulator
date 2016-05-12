@@ -252,6 +252,7 @@
  #program label {
    display:inline;
    padding: 1px;
+   white-space: nowrap;
  }
  
  #leksjonListe {
