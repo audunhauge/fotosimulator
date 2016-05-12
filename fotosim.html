@@ -9,25 +9,32 @@
     <script src="fotosim.js"></script>
   </head>
   <body>
+  <form id="guiform">
   <div id="main">
     <div id="settings">
       <div class="controls" id="iso">
-        ISO <span class="lock"></span>
+        ISO <span></span>
+        <select id="seliso">
+        </select>
       </div>
       <div class="controls" id="aperture">
-         Aperture <span class="lock"></span>
+        Aperture <span></span>
+        <select id="selaperture">
+        </select>
       </div>
       <div class="controls" id="shutter">
-        Shutter <span class="lock"></span>
+        Shutter <span></span>
+        <select id="selshutter">
+        </select>
       </div>
       <div id="program">
         Program <span></span>
         <p>
         <div id="progRadio">
-          <label ><input type="radio" name="prog" value="manual">Manual</label>
-          <label ><input type="radio" name="prog" value="tv">TV</label>
-          <label ><input type="radio" name="prog" value="av">AV</label>
-          <label ><input type="radio" name="prog" value="p">P</label>
+          <label ><input type="radio" name="prog" disabled="disabled" value="manual">Manual</label>
+          <label ><input type="radio" name="prog" disabled="disabled" value="tv">TV</label>
+          <label ><input type="radio" name="prog" disabled="disabled" value="av">AV</label>
+          <label ><input type="radio" name="prog" disabled="disabled" value="p">P</label>
         </div>
       </div>
     </div>
@@ -37,17 +44,18 @@
       </div>
     </div>
     <div id="view">
-      <div>Live view</div>
+      <div id="live">Live view</div>
       <div id="picture"></div>
       <div id="status">
         <span id="statIso">200</span>
         <span id="statAperture">f2</span>
         <span id="statShutter">1/250</span>
-        <span id="statFocus">50</span>
+        <span id="statFocal">50</span>
         <span id="statAvstand">2.5</span>
       </div>
     </div>
   </div>
+  </form>
   <div id="preload">
     <!-- preload images -->
   </div>

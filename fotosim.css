@@ -17,7 +17,7 @@
   height: 770px;
   width: 100%;
   justify-content: flex-start;
-  background-image: url("stor.png"); 
+  /*background-image: url("stor.png"); */
   padding-left:10px;
 }
 
@@ -38,7 +38,16 @@
 }
 
 .controls select {
-  width: 150px;
+  width: 170px;
+  border:solid blue 1px;
+  padding:4px;
+  margin:2px;
+  font-size: 1.2em;
+  margin-top: 14px;
+}
+
+.controls.lock select {
+  border:none;
 }
 
 
@@ -70,7 +79,7 @@
   order: 3;
   width:205px;
   height: 195px; 
-  background: rgba(250,250,250,0.3);
+  background: rgba(230,230,230,0.9);
   margin-top: 10px;
 }
 
@@ -89,9 +98,101 @@
 
 #leksjonListe div {
    width:165px;
-   padding-left:18px;
+   margin-left:18px;
    white-space: nowrap;
    padding-top:5px;
+   border-bottom: solid rgba(0,0,0,0) 2px;
+   cursor: pointer;
+ }
+ 
+ #leksjonListe div.active {
+   border-bottom: solid skyblue 2px;
+ }
+ 
+#live {
+   position: absolute;
+   top:20px;
+   left:16px;
+ }
+ 
+ #status {
+   position: absolute;
+   bottom:25px;
+   left:10px;
+   width: 100%;
+ }
+ 
+ #statIso {
+   position: absolute;
+   top:0;
+   left:0px;
+ }
+ #statIso:before {
+   content: "ISO:";
+ }
+ 
+ #statAperture {
+   position: absolute;
+   top:0;
+   left:4.2em;
+ }
+ #statAperture:before {
+   content: "Aperture:";
+ }
+ 
+ #statShutter {
+   position: absolute;
+   top:0;
+   left:11em;
+ }
+ #statShutter:before {
+   content: "Shutter:";
+ }
+ 
+ 
+ #statFocal {
+   position: absolute;
+   top:0;
+   right: 10em;
+ }
+ #statFocal:before {
+   content: "Focal length:";
+ }
+ #statFocal:after {
+   content: "mm";
+ }
+ 
+ 
+ #statAvstand {
+   position: absolute;
+   top:0;
+   right: 2em;
+ }
+ #statAvstand:before {
+   content: "Avstand:";
+ }
+ #statAvstand:after {
+   content: "m";
+ } 
+ 
+ #picture {
+   position: absolute;
+   left: 35px;
+   top: 90px;
+   width: 810px;
+   height: 540px;
+   border: solid blue 1px;
+   display: flex;
+   justify-content: center;
+   background-size: cover;
+ }
+ 
+ #picture div {
+   margin-top: 20%;
+   width:60%;
+   height: 50%;
+   text-align: center;
+   background-color: rgba(240,240,240,0.8);
  }
 
 
@@ -111,7 +212,7 @@
   flex-direction: row;
   width: 540px;
   height: 740px;
-  background-image: url("liten.png");
+  /*background-image: url("liten.png");*/
  }  
  
  #view {
@@ -157,19 +258,39 @@
  }
  
   #leksjonListe div {
-   padding-left:15px;
+   margin-left:15px;
    padding-top:2px;
  }
  
- #view > div {
+ #live {
    position: absolute;
    top:20px;
-   left:20px;
+   left:16px;
  }
  
  #status {
-   
+   position: absolute;
+   bottom:25px;
+   left:10px;
+   width: 100%;
+   font-size: 0.8em;
  }
+ #picture {
+   position: absolute;
+   left: 15px;
+   top: 42px;
+   width: 510px;
+   height: 340px;
+   border: solid blue 1px;
+ }
+ 
+ #picture div {
+   margin-top: 20%;
+   width:90%;
+   height: 50%;
+   text-align: center;
+ }
+ 
   
 }
 
