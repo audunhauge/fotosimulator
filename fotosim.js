@@ -138,10 +138,31 @@ function setup() {
        ctrl.disabled = false;
        var divctrl = document.getElementById(e);
        removeClass(divctrl,"lock");
-    });
-    
-    
+    });    
   }
+  
+  /**
+   * Start preloading image sets
+   * Read filenames from imageset and add an img element
+   *   for each file in the preload div.
+   * Without this there will be a delay while image is fetched
+   * from server when user snaps a picture
+   * IIFE as we only call this function on setup
+   */
+  (function() {
+    var setname, list, pic, divPic, prepend,  i;
+    var divPreload = document.getElementById("preload");
+    for (setname in imagesets) {
+      list = imagesets[setname].ImageLoader;
+      prepend = imagesets[setname].attributes.prependURLs;
+      for (i=0; i < list.length; i++) {
+        pic = list[i].url
+        divPic = document.createElement('img');
+        divPic.src = prepend + pic;
+        divPreload.appendChild(divPic);
+      }
+    }
+  })();
      
 }
 
