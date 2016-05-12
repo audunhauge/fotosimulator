@@ -241,6 +241,7 @@
   height: 60px;
   padding: 5px;
   margin-top:8px;
+  white-space: nowrap;
  }
 
  #leksjon {
@@ -252,7 +253,7 @@
  #program label {
    display:inline;
    padding: 1px;
-   white-space: nowrap;
+   font-size:0.9em;
  }
  
  #leksjonListe {
