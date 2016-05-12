@@ -91,9 +91,10 @@
 #leksjon h4 {
   padding:0;
   padding-left: 16px;
-  font-size:1.4em;
-  margin-top: 20px;
+  font-size:1.2em;
+  margin-top: 10px;
   margin-bottom:8px;
+  white-space: nowrap;
 }
 
 #leksjonListe div {
@@ -261,6 +262,11 @@
   white-space: nowrap;
   flex-wrap: wrap;
   justify-content: flex-start;
+ }
+ 
+ #leksjon h4 {
+   font-size:1.4em;
+   margin-top: 10px;
  }
  
   #leksjonListe div {
