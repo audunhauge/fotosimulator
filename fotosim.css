@@ -12,112 +12,331 @@
 
 #main {
   display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 700px;
-  width: 1100px;
+  height: 770px;
+  width: 100%;
   justify-content: flex-start;
-}
-
-#leksjon {
-  order: 3;
-  border: solid gray 1px;
-  width:205px;
-  height: 195px; 
+  /*background-image: url("stor.png"); */
+  padding-left:10px;
 }
 
 #settings {
   order: 1;
-  flex: 1 1 2;
+  -webkit-order: 1;
+  flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  -webkit-flex: 0 1 auto;
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
+  -webkit-flex-direction: column;  
+  margin-top:30px;
+  width:240px;
 }
 
 .controls {
   width:175px;
   height: 75px; 
   padding: 15px;
+  padding-left: 20px;
+}
+
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .controls select {
-  width: 150px;
+  width: 170px;
+  border:solid blue 1px;
+  padding:4px;
+  margin:2px;
+  font-size: 1.2em;
+  margin-top: 14px;
+}
+
+.controls.lock select {
+  border:none;
 }
 
 
 #program {
   order: 2;
+  -webkit-order: 2;
   width:185px;
   height: 160px;
   padding:10px;
+  padding-left:20px;
+  margin-top: 20px;
 }
 
- #program label {
+#program label {
    display:block;
    padding: 5px;
    padding-top:3px;
- }
-
-
+}
 
 #view {
   order: 4;
+  -webkit-order: 4;
   flex: 0 1 auto;
   width: 880px;
-  height: 700px;
-  border: solid gray 1px;
+  height: 750px;
+  border: solid green 1px;
+  position: relative;
 }
 
+#leksjon {
+  order: 3;
+  width:205px;
+  height: 195px; 
+  background: rgba(230,230,230,0.9);
+  margin-top: 10px;
+}
+
+#leksjonListe {
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+
+#leksjon h4 {
+  padding:0;
+  padding-left: 16px;
+  font-size:1.2em;
+  margin-top: 10px;
+  margin-bottom:8px;
+  white-space: nowrap;
+}
+
+#leksjonListe div {
+   width:165px;
+   margin-left:18px;
+   white-space: nowrap;
+   padding-top:5px;
+   border-bottom: solid rgba(0,0,0,0) 2px;
+   cursor: pointer;
+ }
+ 
+ #leksjonListe div.active {
+   border-bottom: solid skyblue 2px;
+ }
+ 
+#live {
+   position: absolute;
+   top:20px;
+   left:16px;
+ }
+ 
+ #status {
+   position: absolute;
+   bottom:25px;
+   left:10px;
+   width: 100%;
+ }
+ 
+ #statIso {
+   position: absolute;
+   top:0;
+   left:0px;
+ }
+ #statIso:before {
+   content: "ISO:";
+ }
+ 
+ #statAperture {
+   position: absolute;
+   top:0;
+   left:4.2em;
+ }
+ #statAperture:before {
+   content: "Aperture:";
+ }
+ 
+ #statShutter {
+   position: absolute;
+   top:0;
+   left:11em;
+ }
+ #statShutter:before {
+   content: "Shutter:";
+ }
+ 
+ 
+ #statFocal {
+   position: absolute;
+   top:0;
+   right: 10em;
+ }
+ #statFocal:before {
+   content: "Focal length:";
+ }
+ #statFocal:after {
+   content: "mm";
+ }
+ 
+ 
+ #statAvstand {
+   position: absolute;
+   top:0;
+   right: 2em;
+ }
+ #statAvstand:before {
+   content: "Avstand:";
+ }
+ #statAvstand:after {
+   content: "m";
+ } 
+ 
+ #picture {
+   position: absolute;
+   left: 35px;
+   top: 90px;
+   width: 810px;
+   height: 540px;
+   border: solid blue 1px;
+   display: flex;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   justify-content: center;
+   background-size: cover;
+ }
+ 
+ #picture div {
+   margin-top: 20%;
+   width:60%;
+   height: 50%;
+   text-align: center;
+   background-color: rgba(240,240,240,0.8);
+ }
 
 
 
-@media (max-width: 618px) {
+
+@media (max-width: 618px) 
+       , (max-device-width: 618px) {
+         
  #settings {
   flex: 0 1 450px;
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  -webkit-flex: 0 1 450px;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex: 0 1 450px;
+  -ms-flex-direction: row;
+  -ms-flex-wrap: wrap;
   justify-content: flex-start;
+  margin-top:0px;
  }
   
  #main {
-  display: flex;
+  padding:5px;
   flex-direction: row;
-  flex-wrap: wrap;
-  width: 480px;
-  height: 700px;
-  justify-content: flex-start;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  max-width: 600px;
+  width: 540px;
+  height: 740px;
+  /*background-image: url("liten.png");*/
+  margin-left:auto;
+  margin-right:auto;
  }  
  
  #view {
   order: 3;
+  -webkit-order: 3;
   width: 100%;
-  height: 380px;
-}
+  height: 420px;
+  margin-left: 0px;
+ }
 
  .controls {
   width: 170px;
-  height: 80px; 
+  height: 70px; 
  }
  
  #aperture {
    order: 2;
+   -webkit-order: 2;
  }
 
  #program {
+  margin-left:12px;
   width:220px;
   height: 60px;
+  padding: 5px;
+  margin-top:8px;
+  white-space: nowrap;
  }
 
  #leksjon {
   order: 4;
+  -webkit-order: 4;
   width: 100%;
-  height: 110px;
+  height: 160px;
  }
  
  #program label {
    display:inline;
    padding: 1px;
+   font-size:0.9em;
  }
+ 
+ #leksjonListe {
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-direction: row;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;    
+  white-space: nowrap;
+  justify-content: flex-start;
+ }
+ 
+ #leksjon h4 {
+   font-size:1.4em;
+   margin-top: 10px;
+ }
+ 
+  #leksjonListe div {
+   margin-left:15px;
+   padding-top:14px;
+ }
+ 
+ #live {
+   position: absolute;
+   top:20px;
+   left:16px;
+ }
+ 
+ #status {
+   position: absolute;
+   bottom:25px;
+   left:10px;
+   width: 100%;
+   font-size: 0.8em;
+ }
+ #picture {
+   position: absolute;
+   left: 15px;
+   top: 42px;
+   width: 510px;
+   height: 340px;
+   border: solid blue 1px;
+ }
+ 
+ #picture div {
+   margin-top: 20%;
+   width:90%;
+   height: 50%;
+   text-align: center;
+ }
+ 
   
 }
 
