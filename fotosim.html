@@ -31,10 +31,10 @@
         Program <span></span>
         <p>
         <div id="progRadio">
-          <label ><input type="radio" name="prog" disabled="disabled" value="manual">Manual</label>
-          <label ><input type="radio" name="prog" disabled="disabled" value="tv">TV</label>
-          <label ><input type="radio" name="prog" disabled="disabled" value="av">AV</label>
-          <label ><input type="radio" name="prog" disabled="disabled" value="p">P</label>
+          <label ><input id="radioM" type="radio" name="prog" disabled="disabled" value="manual">Manual</label>
+          <label ><input id="radioT" type="radio" name="prog" disabled="disabled" value="tv">TV</label>
+          <label ><input id="radioA" type="radio" name="prog" disabled="disabled" value="av">AV</label>
+          <label ><input id="radioP" type="radio" name="prog" disabled="disabled" value="p">P</label>
         </div>
       </div>
     </div>
@@ -45,7 +45,9 @@
     </div>
     <div id="view">
       <div id="live">Live view</div>
-      <div id="picture"></div>
+      <div id="picture">
+        Velg motiv/leksjon for å komme igang.
+      </div>
       <div id="status">
         <span id="statIso">200</span>
         <span id="statAperture">f2</span>

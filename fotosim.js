@@ -30,26 +30,37 @@ function setup() {
   var setinfo;  // info about selected set
   // filled in when user chooses image-set
   
+  var currentSetArray;  // list of image names
+  // for currently selected set
+  
+  // these are taken from original actionscript
+  // no deeper info about them
+  // they are used to select correct image given iso,apertue,shutter
+  var defaultImg;
+  var ev;
+  var evAdjust;
+  var isoIndex;
+  var shutterIndex;
+  var apertureIndex;
+  var setname;          // name of set, nightlight/daylight ...
+  
   var ready = false;
   // will change to true if we can take a picture
   
   function selectControls(selected) {
-    selIso.innerHTML = '<option>Velg iso</option>'
-     + (isoList.map(function(e) { 
+    selIso.innerHTML = (isoList.map(function(e) { 
          var sel = selected.iso === e ? ' selected' : '';
          return '<option' + sel + '>'+e+'</option>'
        })).join('');
     
      
-    selAperture.innerHTML = '<option>Velg blendråpning</option>'
-      + (apertureList.map(function(e) { 
+    selAperture.innerHTML = (apertureList.map(function(e) { 
          var sel = selected.aperture === e ? ' selected' : '';
          return '<option' + sel + '>'+e+'</option>'
         })).join('');
      
           
-    selShutter.innerHTML = '<option>Velg lukkertid</option>'
-     + (shutterList.map(function(e) { 
+    selShutter.innerHTML = (shutterList.map(function(e) { 
          var sel = selected.shutter === e ? ' selected' : '';
          return '<option' + sel + '>'+e+'</option>'
        })).join('');
@@ -69,7 +80,60 @@ function setup() {
  
   function takePicture(e) {
     if (!ready) return;
-    console.log(e);
+    var currentImage;
+    var deltaIso = (+selIso.selectedIndex - isoIndex);
+    var deltaAperture = (+selAperture.selectedIndex - apertureIndex);
+    var deltaShutter = (+selShutter.selectedIndex - shutterIndex);
+    isoIndex = +selIso.selectedIndex;
+    apertureIndex = +selAperture.selectedIndex;
+    shutterIndex = +selShutter.selectedIndex;
+    
+    // may trigger redraw of aperture
+    aperture_auto(setname, -deltaShutter);
+    
+    // may trigger redraw of shutter
+    shutter_auto(setname, -deltaAperture);
+    
+    ev += deltaIso + deltaShutter + deltaAperture;
+    
+    var currentSetIndex = ev - evAdjust;
+    if (currentSetIndex > currentSetArray.length - 1) {
+      currentSetIndex = currentSetArray.length - 1;
+    } else if (currentSetIndex <= 1) {
+      currentSetIndex = 1;
+    }
+    currentImage = currentSetArray[currentSetIndex];
+    
+    var prepend = setinfo.prependURLs;
+    picture.innerHTML = '';    
+    picture.style.backgroundImage = 'url("' 
+      + prepend + currentImage.url
+      +'")';       
+    
+    console.log("ev=",ev,"defaultImg=",defaultImg,"iso=",isoIndex
+    ,"currentImage=",currentImage
+    ," aper=",apertureIndex," shu=",shutterIndex);
+  
+  }
+  
+  function aperture_auto(id, delta) {
+    if (id === 'shutter' && delta !== 0) {
+      if (apertureIndex + delta > 0
+          && apertureIndex + delta < apertureList.length) {
+          apertureIndex += delta;
+          selAperture.selectedIndex = apertureIndex;
+      }
+    }
+  }
+  
+  function shutter_auto(id, delta) {
+    if (id === "aperture" && delta !== 0) {
+      if (shutterIndex + delta > 0
+          && shutterIndex + delta < shutterList.length) {
+          shutterIndex += delta;
+          selShutter.selectedIndex = shutterIndex;
+      }
+    }
   }
  
   function disableControls() {
@@ -99,7 +163,10 @@ function setup() {
   }
  
   function guiVelgSet(e) {
-    var ctrList, setname;
+    var ctrList;
+    
+    // user must select settings
+    ready = true;
     
     // first remove .active from all sets
     setLinks.forEach(function(e) { removeClass(e,'active')});
@@ -107,6 +174,19 @@ function setup() {
     var setId = e.target;
     setname = setId.id;
     setinfo = imagesets[setname].attributes;
+    currentSetArray = imagesets[setname].ImageLoader;
+    
+    isoIndex = +setinfo.isoIndex;
+    apertureIndex = +setinfo.apertureIndex;
+    shutterIndex = +setinfo.shutterIndex;
+    
+    // select correct radio-button for this set
+    // prog will be one of {M,A,T,P} manual,av,tv,p
+    var prog = infolist[setname].prog;
+    document.getElementById("radio"+prog).checked = true;
+    
+    
+    
     addClass(setId,'active');
     ctrList = setinfo.controls ? setinfo.controls.split(',')
               : "iso,aperture,shutter".split(',');
@@ -125,9 +205,9 @@ function setup() {
       +'")';
       
     // recreate selects with correct settings
-    selectControls({  iso           :isoList[setinfo.isoIndex]
-                    ,aperture       :apertureList[setinfo.apertureIndex]
-                    ,shutter        :shutterList[setinfo.shutterIndex]
+    selectControls({  iso           :isoList[isoIndex]
+                    ,aperture       :apertureList[apertureIndex]
+                    ,shutter        :shutterList[shutterIndex]
                     });
    
     // first turn off all controls
@@ -138,7 +218,12 @@ function setup() {
        ctrl.disabled = false;
        var divctrl = document.getElementById(e);
        removeClass(divctrl,"lock");
-    });    
+    });   
+    
+    // precalculated values
+    defaultImg = +setinfo.defaultImg;
+    ev = apertureIndex + shutterIndex - 5 + isoIndex - 7;
+    evAdjust = ev - defaultImg; 
   }
   
   /**
