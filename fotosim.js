@@ -81,7 +81,8 @@ function setup() {
   // disable all controls at start
   disableControls();
   
-  form.oninput = takePicture;
+  //form.oninput = takePicture;
+  form.onchange = takePicture;
   // try to take a picture if any input
   // will break out if conditions not met for selected set
  
