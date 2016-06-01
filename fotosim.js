@@ -17,6 +17,13 @@ function setup() {
   var selAperture = document.getElementById("selaperture");
   var selShutter = document.getElementById("selshutter");
   
+  // status shown under live view
+  var statIso = document.getElementById("statIso");
+  var statAperture = document.getElementById("statAperture");
+  var statShutter = document.getElementById("statShutter");
+  var statFocal = document.getElementById("statFocal");
+  var statAvstand = document.getElementById("statAvstand");
+  
   
   var apertureList = [ 1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16, 22 ];
   var shutterList = ['30"','15"','8"','4"','2"','1"',"1/2","1/4","1/8",
@@ -79,6 +86,11 @@ function setup() {
   // will break out if conditions not met for selected set
  
   function takePicture(e) {
+    // update status for Live View
+    statIso.innerHTML = selIso.value;
+    statAperture.innerHTML = selAperture.value;
+    statShutter.innerHTML = selShutter.value;
+    
     if (!ready) return;
     var currentImage;
     var deltaIso = (+selIso.selectedIndex - isoIndex);
