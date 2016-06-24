@@ -54,23 +54,39 @@ function setup() {
   var ready = false;
   // will change to true if we can take a picture
   
+  
+  /*
+   * total rewrite as ie9 misbehaves on array.map
+   */
   function selectControls(selected) {
-    selIso.innerHTML = (isoList.map(function(e) { 
-         var sel = selected.iso === e ? ' selected' : '';
-         return '<option' + sel + '>'+e+'</option>'
-       })).join('');
+    var s;
+    var i;
+    var sel;
+    var e;
     
-     
-    selAperture.innerHTML = (apertureList.map(function(e) { 
-         var sel = selected.aperture === e ? ' selected' : '';
-         return '<option' + sel + '>'+e+'</option>'
-        })).join('');
-     
-          
-    selShutter.innerHTML = (shutterList.map(function(e) { 
-         var sel = selected.shutter === e ? ' selected' : '';
-         return '<option' + sel + '>'+e+'</option>'
-       })).join('');
+    s = '';
+    for (i=0; i < isoList.length; i++) {
+      e = isoList[i];
+      sel = selected.iso === e ? ' selected' : '';
+      s += '<option' + sel + '>'+e+'</option>';
+    }
+    selIso.innerHTML = s;
+    
+    s = '';
+    for (i=0; i < apertureList.length; i++) {
+      e = apertureList[i];
+      sel = selected.aperture === e ? ' selected' : '';
+      s += '<option' + sel + '>'+e+'</option>';
+    }
+    selAperture.innerHTML = s;
+    
+    s = '';
+    for (i=0; i < shutterList.length; i++) {
+      e = shutterList[i];
+      sel = selected.aperture === e ? ' selected' : '';
+      s += '<option' + sel + '>'+e+'</option>';
+    }
+    selShutter.innerHTML = s; 
   }
   
   selectControls({iso:"200",aperture:2,shutter:"1/30"});
