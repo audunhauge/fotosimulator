@@ -159,19 +159,24 @@ function setup() {
   }
   
   /***
-   *  lager en liste av sett med bilder
+   *  make a menu to select picture sets
    *  @param {DOM} pater - dom-element to append children to
    */
   function lagSetListe(pater) {
     var setTitle;
     var lnkSet;
+    var i = 0;   // used to help ie break list into two columns
     for (setTitle in infolist) {
       lnkSet = document.createElement('div');
-      lnkSet.innerHTML = infolist[setTitle].link;
+      lnkSet.innerHTML = infolist[setTitle].link + ( (i % 2) ? '<br>' : '');
+      // using ieonly.css we need to add br to every other setname
+      // to spread them over two columns
+      // All other browsers use display flex
       pater.appendChild(lnkSet);
       lnkSet.onclick = guiVelgSet;
-      lnkSet.id = setTitle;
+      lnkSet.id = "set_" + setTitle;
       setLinks.push(lnkSet);   // array of all setLinks
+      i++;
     }
   }
  
@@ -185,7 +190,7 @@ function setup() {
     setLinks.forEach(function(e) { removeClass(e,'active')});
    
     var setId = e.target;
-    setname = setId.id;
+    setname = setId.id.substr(4);    // first 4 chars are "set_"
     setinfo = imagesets[setname].attributes;
     currentSetArray = imagesets[setname].ImageLoader;
     

@@ -26,14 +26,6 @@ var infolist = {
 		    + " for å gi riktig eksponering." 
             + " Kameraets programvelger står på Manuell (M)."
 	},
-	aperture: {
-    link:"Dybdeskarphet - sjakkbrett",
-		title: "DYBDESKARPHET",
-    prog:"A",
-    instruks:"Velg aperture",
-		text: "Her kan du prøve ut hvordan blenderen påvirker dybdeskarpheten i bildet."
-		    + " Lukkeren stiller seg selv fordi kameraets programvelger står på AV (A hvis du bruker Nikon)." 
-	},
 	shutter: {
     link:"Lukkertid - elv",
 		title: "BEVEGELSE",
@@ -41,6 +33,14 @@ var infolist = {
     instruks:"Velg lukkertid",
 		text: "Her kan du prøve ut hvordan lukkeren påvirker bevegelsesuskarpheten i bildet."
 		    + " Blenderen stiller seg selv fordi kameraets programvelger står på TV (S hvis du bruker Nikon)." 
+	},
+	aperture: {
+    link:"Dybdeskarphet - sjakkbrett",
+		title: "DYBDESKARPHET",
+    prog:"A",
+    instruks:"Velg aperture",
+		text: "Her kan du prøve ut hvordan blenderen påvirker dybdeskarpheten i bildet."
+		    + " Lukkeren stiller seg selv fordi kameraets programvelger står på AV (A hvis du bruker Nikon)." 
 	}
 	
 }

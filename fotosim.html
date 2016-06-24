@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="icons.css">
-    <link rel="stylesheet" href="fotosim.css">
+    <!--<link rel="stylesheet" href="ieonly.css" /> -->
+    <!--[if lt IE 11]>
+	    <link rel="stylesheet" href="ieonly.css" />
+    <![endif]-->
+    <!--[if !IE]><!-->
+	    <link rel="stylesheet" href="fotosim.css" />
+    <!--[endif]-->
     <script src="interface.js"></script>
     <script src="images/sets/sets.js"></script>
     <script src="fotosim.js"></script>
@@ -46,7 +52,7 @@
     <div id="view">
       <div id="live">Live view</div>
       <div id="picture">
-        Velg motiv/leksjon for å komme igang.
+        <div>Velg motiv/leksjon for å komme igang.</div>
       </div>
       <div id="status">
         <span id="statIso">200</span>
