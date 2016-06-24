@@ -251,7 +251,11 @@ function setup() {
     // precalculated values
     defaultImg = +setinfo.defaultImg;
     ev = apertureIndex + shutterIndex - 5 + isoIndex - 7;
-    evAdjust = ev - defaultImg; 
+    evAdjust = ev - defaultImg;
+    
+    // these values only change between sets 
+    statAvstand.innerHTML = setinfo.avstand;
+    statFocal.innerHTML = setinfo.focal;
   }
   
   /**

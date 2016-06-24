@@ -9,7 +9,9 @@ var imagesets = {
           "apertureIndex": "1",
           "shutterIndex": "14",
           "isoIndex": "7",
-          "controls": ""
+          "controls": "",
+          "avstand":"98",
+          "focal": "75"
         },
         "ImageLoader": [
           {   "name": "bgPhoto",  "url": "index.jpg"   },
@@ -43,7 +45,9 @@ var imagesets = {
           "apertureIndex": "7",
           "shutterIndex": "9",
           "isoIndex": "7",
-          "controls": "shutter"
+          "controls": "shutter",
+          "avstand":"124",
+          "focal": "35"
         },
         "ImageLoader": [
           {  "name": "bgPhoto", "url": "index.jpg"  },
@@ -79,7 +83,9 @@ var imagesets = {
           "apertureIndex": "5",
           "shutterIndex": "5",
           "isoIndex": "5",
-          "controls": ""
+          "controls": "",
+          "avstand":"46",
+          "focal": "24"
         },
         "ImageLoader": [
           {  "name": "bgPhoto", "url": "index.jpg"  },
@@ -111,7 +117,9 @@ var imagesets = {
           "apertureIndex": "4",
           "shutterIndex": "13",
           "isoIndex": "7",
-          "controls": "aperture"
+          "controls": "aperture",
+          "avstand":"0.95",
+          "focal": "85"
         },
         "ImageLoader": [
           {  "name": "bgPhoto", "url": "index.jpg"  },
@@ -137,7 +145,9 @@ var imagesets = {
           "apertureIndex": "2",
           "shutterIndex": "10",
           "isoIndex": "7",
-          "controls": "shutter"
+          "controls": "shutter",
+          "avstand":"2.3",
+          "focal": "105"
         },
         "ImageLoader": [
                     {  "name": "bgPhoto", "url": "index.jpg"  },
