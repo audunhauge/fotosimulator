@@ -16,6 +16,9 @@ function setup() {
   var selIso = document.getElementById("seliso");
   var selAperture = document.getElementById("selaperture");
   var selShutter = document.getElementById("selshutter");
+  var ieiso = document.getElementById("ieiso");
+  var ieaperture = document.getElementById("ieaperture");
+  var ieshutter = document.getElementById("ieshutter");
   
   // status shown under live view
   var statIso = document.getElementById("statIso");
@@ -54,39 +57,30 @@ function setup() {
   var ready = false;
   // will change to true if we can take a picture
   
-  
-  /*
-   * total rewrite as ie9 misbehaves on array.map
-   */
   function selectControls(selected) {
-    var s;
-    var i;
-    var sel;
-    var e;
+    ieiso.innerHTML = '<select id="seliso">' + (isoList.map(function(e) { 
+         var sel = selected.iso === e ? ' selected' : '';
+         return '<option' + sel + '>'+e+'</option>'
+       })).join('') + '</select>';
     
-    s = '';
-    for (i=0; i < isoList.length; i++) {
-      e = isoList[i];
-      sel = selected.iso === e ? ' selected' : '';
-      s += '<option' + sel + '>'+e+'</option>';
-    }
-    selIso.innerHTML = s;
+     
+    ieaperture.innerHTML = '<select id="selaperture">' + (apertureList.map(function(e) { 
+         var sel = selected.aperture === e ? ' selected' : '';
+         return '<option' + sel + '>'+e+'</option>'
+        })).join('') + '</select>';
+     
+          
+    selShutter.innerHTML = '<select id="selshutter">' + (shutterList.map(function(e) { 
+         var sel = selected.shutter === e ? ' selected' : '';
+         return '<option' + sel + '>'+e+'</option>'
+       })).join('') + '</select>';
     
-    s = '';
-    for (i=0; i < apertureList.length; i++) {
-      e = apertureList[i];
-      sel = selected.aperture === e ? ' selected' : '';
-      s += '<option' + sel + '>'+e+'</option>';
-    }
-    selAperture.innerHTML = s;
-    
-    s = '';
-    for (i=0; i < shutterList.length; i++) {
-      e = shutterList[i];
-      sel = selected.aperture === e ? ' selected' : '';
-      s += '<option' + sel + '>'+e+'</option>';
-    }
-    selShutter.innerHTML = s; 
+    // refetch these as they are remade to work with ie9   
+    // original version only changed the options
+    // but for this to work under ie9 we mest remake entire select
+    selIso = document.getElementById("seliso");
+    selAperture = document.getElementById("selaperture");
+    selShutter = document.getElementById("selshutter");
   }
   
   selectControls({iso:"200",aperture:2,shutter:"1/30"});
