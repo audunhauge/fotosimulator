@@ -70,7 +70,7 @@ function setup() {
         })).join('') + '</select>';
      
           
-    selShutter.innerHTML = '<select id="selshutter">' + (shutterList.map(function(e) { 
+    ieshutter.innerHTML = '<select id="selshutter">' + (shutterList.map(function(e) { 
          var sel = selected.shutter === e ? ' selected' : '';
          return '<option' + sel + '>'+e+'</option>'
        })).join('') + '</select>';
