@@ -3,7 +3,7 @@ var infolist = {
     link:"Manuell - dagslys",
 		title:"DAGSLYSMOTIV",
     prog:"M",
-    instruks:"Velg instillinger",
+    instruks:"Velg innstillinger",
     text:"Her kan du prøve ut hvordan blender,"
 		   + " lukker og iso-verdi spiller sammen for å gi riktig eksponering."
            + " Kameraets programvelger står på Manuell (M)."
@@ -21,7 +21,7 @@ var infolist = {
     link:"Manuell - interiør",
 		title: "INTERIØR",
     prog:"M",
-    instruks:"Velg instillinger",
+    instruks:"Velg innstillinger",
 		text: "Her kan du prøve ut hvordan blender, lukker og iso-verdi spiller sammen"
 		    + " for å gi riktig eksponering." 
             + " Kameraets programvelger står på Manuell (M)."
